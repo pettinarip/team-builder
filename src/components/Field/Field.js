@@ -2,16 +2,17 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../Layout'
 
-const Field = ({ layout }) => {
+const Field = ({ layout, playersPositions }) => {
   return (
     <div className='field'>
-      {layout && <Layout config={layout.config} />}
+      {layout && <Layout config={layout.config} playersPositions={playersPositions} />}
     </div>
   )
 }
 
 Field.propTypes = {
-  layout: PropTypes.object
+  layout: PropTypes.object,
+  playersPositions: PropTypes.object
 }
 
 export default Field

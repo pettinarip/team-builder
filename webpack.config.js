@@ -6,7 +6,7 @@ const nodeEnv = process.env.NODE_ENV || 'development'
 const isProduction = nodeEnv === 'production'
 
 module.exports = {
-  devtool: isProduction ? false : 'cheap-module-eval-source-map',
+  devtool: isProduction ? false : 'source-map',
   entry: './src/index.js',
   output: {
     path: path.join(__dirname, 'dist'),

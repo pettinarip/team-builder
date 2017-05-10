@@ -1,14 +1,32 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Player from '../Player'
+import PlayerDroppable from '../PlayerDroppable'
 
-const Layout = ({ config }) => {
+const Layout = ({ config, playersPositions }) => {
+  let index = 0
+  const players = config.map(lineCount => {
+    const slice = Array.apply(null, Array(lineCount)).map(
+      (x, i) => ({
+        ...playersPositions[index + i],
+        position: index + i
+      })
+    )
+    index += lineCount
+    return slice
+  })
+
   return (
     <div className='layout'>
-      {config.slice().reverse().map((lineCount, i) =>
+      {players.reverse().map((line, i) =>
         <div className='line' key={i}>
-          {Array.apply(null, Array(lineCount)).map((n, i) =>
-            <Player key={i} />
+          {line.map(player =>
+            <PlayerDroppable
+              id={player.id}
+              color={player.color}
+              number={player.number}
+              position={player.position}
+              key={player.position}
+            />
           )}
         </div>
       )}
@@ -17,7 +35,8 @@ const Layout = ({ config }) => {
 }
 
 Layout.propTypes = {
-  config: PropTypes.array
+  config: PropTypes.array,
+  playersPositions: PropTypes.object
 }
 
 export default Layout
