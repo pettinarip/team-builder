@@ -18,5 +18,7 @@ const selectLayout = id => ({
 })
 
 export const changeLayoutSelection = id => (dispatch, getState) => {
-  dispatch(selectLayout(id))
+  if (getState().layouts.selectedId !== id) {
+    dispatch(selectLayout(id))
+  }
 }
