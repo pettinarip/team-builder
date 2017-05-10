@@ -18,17 +18,11 @@ const byId = (state = {}, action) => {
 }
 
 const ids = (state = [], action) => {
-  let index
   switch (action.type) {
     case ADD_PLAYER_POSITION:
-      index = state.indexOf(action.id)
-      return index > -1 ? state : state.concat(action.id)
+      return state.indexOf(action.id) > -1 ? state : state.concat(action.id)
     case REMOVE_PLAYER_POSITION:
-      index = state.indexOf(action.id)
-      return [
-        ...state.slice(0, index),
-        ...state.slice(index + 1)
-      ]
+      return state.filter(id => id !== action.id)
     default:
       return state
   }
