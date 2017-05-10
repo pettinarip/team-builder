@@ -1,0 +1,2 @@
+export const RECEIVE_LAYOUTS = 'RECEIVE_LAYOUTS'
+export const SELECT_LAYOUT = 'SELECT_LAYOUT'
