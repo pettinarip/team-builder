@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DropTarget } from 'react-dnd'
 import ItemTypes from '../../constants/ItemTypes'
-import Player from '../Player'
 
 const squareTarget = {
   drop (props) {
@@ -22,18 +21,20 @@ function collect (connect, monitor) {
 
 const PlayerDroppable = ({ connectDropTarget, isOver, ...props }) => {
   return connectDropTarget(
-    <div><Player {...props} /></div>
+    <div className={`player ${props.className}`} title={props.name}>
+      <div className='player-number'>{props.number}</div>
+    </div>
   )
 }
 
 PlayerDroppable.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
   number: PropTypes.number,
   color: PropTypes.string,
   position: PropTypes.number,
-  onClick: PropTypes.func,
   connectDropTarget: PropTypes.func,
   isOver: PropTypes.bool
 }

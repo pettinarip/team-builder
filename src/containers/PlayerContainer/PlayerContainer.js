@@ -7,17 +7,25 @@ import PlayerDraggable from '../../components/PlayerDraggable'
 
 const PlayerContainer = ({ players, addPlayer, addPlayerPosition }) => {
   return (
-    <div className='player-selector'>
-      <button type='button' onClick={addPlayer}>Add player</button>
-      {players.map(player =>
-        <PlayerDraggable
-          id={player.id}
-          color={player.color}
-          number={player.number}
-          onDropped={addPlayerPosition}
-          key={player.id}
-        />
-      )}
+    <div className='player-selector list-container'>
+      <div className='title'>Players</div>
+      <div className='subtitle'>
+        <div className='player add-player' onClick={addPlayer}>
+          <div className='player-number'>+</div>
+        </div>
+      </div>
+      <div className='list'>
+        {players.map(player =>
+          <PlayerDraggable
+            className='active'
+            id={player.id}
+            color={player.color}
+            number={player.number}
+            onDropped={addPlayerPosition}
+            key={player.id}
+          />
+        )}
+      </div>
     </div>
   )
 }

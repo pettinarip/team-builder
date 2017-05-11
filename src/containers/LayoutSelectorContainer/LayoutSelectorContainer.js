@@ -8,15 +8,22 @@ import LayoutSelector from '../../components/LayoutSelector'
 const LayoutSelectorContainer = ({ layouts, changeLayoutSelection }) => {
   return (
     <LayoutSelector>
-      {layouts.map(layout =>
-        <div
-          className='layout-description'
-          onClick={() => changeLayoutSelection(layout.id)}
-          key={layout.id}
-        >
-          {layout.config.join('-')}
+      <div className='list-container'>
+        <div className='title'>Tactics</div>
+        <div className='list'>
+          <div className='item'>
+            {layouts.map(layout =>
+              <div
+                className='layout-description'
+                onClick={() => changeLayoutSelection(layout.id)}
+                key={layout.id}
+              >
+                {layout.config.join('-')}
+              </div>
+            )}
+          </div>
         </div>
-      )}
+      </div>
     </LayoutSelector>
   )
 }

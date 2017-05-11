@@ -21,6 +21,7 @@ const Layout = ({ config, playersPositions }) => {
         <div className='line' key={i}>
           {line.map(player =>
             <PlayerDroppable
+              className={player.id ? 'active' : ''}
               id={player.id}
               color={player.color}
               number={player.number}

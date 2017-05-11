@@ -7,12 +7,21 @@ import PlayerContainer from '../PlayerContainer'
 
 const App = () => {
   return (
-    <div className='container'>
-      <LayoutSelectorContainer />
-      <div className='content'>
-        <FieldContainer />
+    <div>
+      <header>
+        <h1 className='super-title'>Team lineup</h1>
+      </header>
+      <div className='container'>
+        <div className='content'>
+          <div className='left-content'>
+            <LayoutSelectorContainer />
+          </div>
+          <FieldContainer />
+          <div className='right-content'>
+            <PlayerContainer />
+          </div>
+        </div>
       </div>
-      <PlayerContainer />
     </div>
   )
 }

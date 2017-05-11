@@ -1,6 +1,5 @@
 import api from '../api/layout'
 import v4 from 'uuid/v4'
-import randomColor from 'randomcolor'
 import * as types from '../constants/ActionTypes'
 
 const receiveLayouts = layouts => ({
@@ -39,8 +38,7 @@ export const addPlayer = () => dispatch => {
     id: v4(),
     name: 'Player',
     icon: '',
-    number: number,
-    color: randomColor()
+    number: number
   })
 }
 

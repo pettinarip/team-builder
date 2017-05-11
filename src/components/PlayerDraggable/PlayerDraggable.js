@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DragSource } from 'react-dnd'
 import ItemTypes from '../../constants/ItemTypes'
-import Player from '../Player'
 
 const playerSource = {
   beginDrag (props) {
@@ -27,11 +26,14 @@ function collect (connect, monitor) {
 
 const PlayerDraggable = ({ connectDragSource, ...props }) => {
   return connectDragSource(
-    <div><Player {...props} /></div>
+    <div className={`player ${props.className}`} title={props.name}>
+      <div className='player-number'>{props.number}</div>
+    </div>
   )
 }
 
 PlayerDraggable.propTypes = {
+  className: PropTypes.string,
   id: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
