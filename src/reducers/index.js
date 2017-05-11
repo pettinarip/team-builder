@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import players from './players'
+import players, * as fromPlayers from './players'
 import layouts, * as fromLayouts from './layouts'
 import positions from './positions'
 
@@ -9,11 +9,14 @@ export default combineReducers({
   positions
 })
 
+export const getAllPlayers = state =>
+  fromPlayers.getAllPlayers(state.players)
+
+export const getAllLayouts = state =>
+  fromLayouts.getAllLayouts(state.layouts)
+
 export const getActiveLayout = state =>
   fromLayouts.getActiveLayout(state.layouts)
-
-export const getLayoutPlayers = state =>
-  state.positions.ids.map(id => state.players.byId[id])
 
 export const getPlayersByPositions = state =>
   state.positions.ids.reduce((positions, id) => {

@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { changeLayoutSelection } from '../../actions'
-import { getLayouts } from '../../reducers/layouts'
+import { getAllLayouts } from '../../reducers'
 import LayoutSelector from '../../components/LayoutSelector'
 
 const LayoutSelectorContainer = ({ layouts, changeLayoutSelection }) => {
@@ -34,7 +34,7 @@ LayoutSelectorContainer.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  layouts: getLayouts(state.layouts)
+  layouts: getAllLayouts(state)
 })
 
 export default connect(

@@ -43,7 +43,7 @@ export default combineReducers({
 export const getLayout = (state, id) =>
   state.byId[id]
 
-export const getLayouts = state =>
+export const getAllLayouts = state =>
   state.ids.map(id => getLayout(state, id))
 
 export const getActiveLayout = state =>

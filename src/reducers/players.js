@@ -36,5 +36,5 @@ export default combineReducers({
 export const getPlayer = (state, id) =>
   state.byId[id]
 
-export const getPlayers = state =>
+export const getAllPlayers = state =>
   state.ids.map(id => getPlayer(state, id))
