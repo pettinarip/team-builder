@@ -11,24 +11,6 @@ export const fetchLayouts = () => dispatch => {
   })
 }
 
-const resetPlayersPosition = positionsNbr => ({
-  type: types.RESET_POSITIONS,
-  positionsNbr
-})
-
-const selectLayout = id => ({
-  type: types.SELECT_LAYOUT,
-  id
-})
-
-export const changeLayoutSelection = id => (dispatch, getState) => {
-  if (getState().layouts.selectedId !== id) {
-    const selectedLayout = getState().layouts.byId[id]
-    dispatch(resetPlayersPosition(selectedLayout.config.reduce((acum, count) => acum + count, 0)))
-    dispatch(selectLayout(id))
-  }
-}
-
 export const addPlayer = () => dispatch => {
   const number = Math.floor(Math.random() * 100) + 1
   dispatch({
@@ -40,20 +22,28 @@ export const addPlayer = () => dispatch => {
   })
 }
 
-const addPlayerToField = (id, position) => ({
-  type: types.ADD_PLAYER_POSITION,
-  id,
-  position
-})
-
-const removePlayerInField = id => ({
-  type: types.REMOVE_PLAYER_POSITION,
-  id
-})
+export const changeLayoutSelection = id => (dispatch, getState) => {
+  if (getState().layouts.selectedId !== id) {
+    dispatch({
+      type: types.RESET_POSITIONS
+    })
+    dispatch({
+      type: types.SELECT_LAYOUT,
+      id
+    })
+  }
+}
 
 export const addPlayerPosition = (id, position, prevId) => dispatch => {
   if (prevId) {
-    dispatch(removePlayerInField(prevId))
+    dispatch({
+      type: types.REMOVE_PLAYER_POSITION,
+      id
+    })
   }
-  dispatch(addPlayerToField(id, position))
+  dispatch({
+    type: types.ADD_PLAYER_POSITION,
+    id,
+    position
+  })
 }
