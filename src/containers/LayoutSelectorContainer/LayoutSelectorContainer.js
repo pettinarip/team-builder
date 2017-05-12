@@ -1,36 +1,35 @@
-import React from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { changeLayoutSelection } from '../../actions'
+import * as actions from '../../actions'
 import { getAllLayouts } from '../../reducers'
 import LayoutSelector from '../../components/LayoutSelector'
 
-const LayoutSelectorContainer = ({ layouts, changeLayoutSelection }) => {
-  return (
-    <LayoutSelector>
-      <div className='list-container'>
-        <div className='title'>Tactics</div>
-        <div className='list'>
-          <div className='item'>
-            {layouts.map(layout =>
-              <div
-                className='layout-description'
-                onClick={() => changeLayoutSelection(layout.id)}
-                key={layout.id}
-              >
-                {layout.config.join('-')}
-              </div>
-            )}
-          </div>
-        </div>
-      </div>
-    </LayoutSelector>
-  )
+class LayoutSelectorContainer extends Component {
+  componentDidMount () {
+    this.fetchData()
+  }
+
+  fetchData () {
+    const { fetchLayouts } = this.props
+    fetchLayouts()
+  }
+
+  render () {
+    const { layouts, changeLayoutSelection } = this.props
+    return (
+      <LayoutSelector
+        layouts={layouts}
+        onLayoutClick={changeLayoutSelection}
+      />
+    )
+  }
 }
 
 LayoutSelectorContainer.propTypes = {
   layouts: PropTypes.array.isRequired,
-  changeLayoutSelection: PropTypes.func.isRequired
+  changeLayoutSelection: PropTypes.func.isRequired,
+  fetchLayouts: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -39,5 +38,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { changeLayoutSelection }
+  actions
 )(LayoutSelectorContainer)

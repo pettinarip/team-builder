@@ -2,14 +2,12 @@ import api from '../api/layout'
 import v4 from 'uuid/v4'
 import * as types from '../constants/ActionTypes'
 
-const receiveLayouts = layouts => ({
-  type: types.RECEIVE_LAYOUTS,
-  layouts
-})
-
-export const getAllLayouts = () => dispatch => {
+export const fetchLayouts = () => dispatch => {
   api.get(layouts => {
-    dispatch(receiveLayouts(layouts))
+    dispatch({
+      type: types.RECEIVE_LAYOUTS,
+      layouts
+    })
   })
 }
 
