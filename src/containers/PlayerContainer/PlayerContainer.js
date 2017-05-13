@@ -6,18 +6,20 @@ import { getAllPlayers } from '../../reducers'
 import PlayerDraggable from '../../components/PlayerDraggable'
 
 const PlayerContainer = ({ players, addPlayer, addPlayerPosition }) => {
-  const number = Math.ceil(Math.random() * 100) + 1
-  const fakePlayer = {
-    name: `Player ${number}`,
-    number,
-    icon: ''
+  const makeFakePlayer = () => {
+    const number = Math.ceil(Math.random() * 100) + 1
+    return {
+      name: `Player ${number}`,
+      number,
+      icon: ''
+    }
   }
 
   return (
     <div className='player-selector list-container'>
       <div className='title'>Players</div>
       <div className='subtitle'>
-        <div className='player add-player' onClick={() => addPlayer(fakePlayer)}>
+        <div className='player add-player' onClick={() => addPlayer(makeFakePlayer())}>
           <div className='player-number'>+</div>
         </div>
       </div>

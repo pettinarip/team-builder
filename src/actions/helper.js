@@ -1,7 +1,8 @@
 export const createAsyncAction = (actionType, promise) => {
   return (...args) => dispatch => {
     dispatch({
-      type: `${actionType}_REQUEST`
+      type: `${actionType}_REQUEST`,
+      payload: args
     })
 
     return promise(...args).then(
