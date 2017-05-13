@@ -12,6 +12,12 @@ export default combineReducers({
 export const getAllPlayers = state =>
   fromPlayers.getAllPlayers(state.players)
 
+export const getActivePlayers = state =>
+  fromPlayers.getActivePlayers(state.players)
+
+export const getInactivePlayers = state =>
+  fromPlayers.getInactivePlayers(state.players)
+
 export const getAllLayouts = state =>
   fromLayouts.getAllLayouts(state.layouts)
 

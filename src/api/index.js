@@ -14,7 +14,8 @@ export const addPlayer = ({ name, number, icon }) => {
       id: v4(),
       name,
       icon,
-      number
+      number,
+      active: false
     }
 
     return player

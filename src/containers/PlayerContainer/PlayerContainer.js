@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
-import { getAllPlayers } from '../../reducers'
+import { getInactivePlayers } from '../../reducers'
 import PlayerDraggable from '../../components/PlayerDraggable'
 
 const PlayerContainer = ({ players, addPlayer, addPlayerPosition }) => {
@@ -46,7 +46,7 @@ PlayerContainer.propTypes = {
 }
 
 const mapStateToProps = (state) => ({
-  players: getAllPlayers(state)
+  players: getInactivePlayers(state)
 })
 
 export default connect(
