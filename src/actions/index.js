@@ -1,26 +1,10 @@
-import api from '../api/layout'
-import v4 from 'uuid/v4'
+import * as api from '../api'
 import * as types from '../constants/ActionTypes'
+import { createAsyncAction } from './helper'
 
-export const fetchLayouts = () => dispatch => {
-  api.get(layouts => {
-    dispatch({
-      type: types.RECEIVE_LAYOUTS,
-      layouts
-    })
-  })
-}
+export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)
 
-export const addPlayer = () => dispatch => {
-  const number = Math.floor(Math.random() * 100) + 1
-  dispatch({
-    type: types.ADD_PLAYER,
-    id: v4(),
-    name: 'Player',
-    icon: '',
-    number: number
-  })
-}
+export const addPlayer = createAsyncAction('ADD_PLAYER', api.addPlayer)
 
 export const changeLayoutSelection = id => (dispatch, getState) => {
   if (getState().layouts.selectedId !== id) {

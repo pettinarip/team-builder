@@ -1,16 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { addPlayer, addPlayerPosition } from '../../actions'
+import * as actions from '../../actions'
 import { getAllPlayers } from '../../reducers'
 import PlayerDraggable from '../../components/PlayerDraggable'
 
 const PlayerContainer = ({ players, addPlayer, addPlayerPosition }) => {
+  const number = Math.ceil(Math.random() * 100) + 1
+  const fakePlayer = {
+    name: `Player ${number}`,
+    number,
+    icon: ''
+  }
+
   return (
     <div className='player-selector list-container'>
       <div className='title'>Players</div>
       <div className='subtitle'>
-        <div className='player add-player' onClick={addPlayer}>
+        <div className='player add-player' onClick={() => addPlayer(fakePlayer)}>
           <div className='player-number'>+</div>
         </div>
       </div>
@@ -42,5 +49,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  { addPlayer, addPlayerPosition }
+  actions
 )(PlayerContainer)

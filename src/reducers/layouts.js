@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { RECEIVE_LAYOUTS, SELECT_LAYOUT } from '../constants/ActionTypes'
+import { FETCH_LAYOUTS_SUCCESS, SELECT_LAYOUT } from '../constants/ActionTypes'
 
 const selectedId = (state = -1, action) => {
   switch (action.type) {
@@ -12,10 +12,10 @@ const selectedId = (state = -1, action) => {
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case RECEIVE_LAYOUTS:
+    case FETCH_LAYOUTS_SUCCESS:
       return {
         ...state,
-        ...action.layouts.reduce((obj, layout) => {
+        ...action.response.reduce((obj, layout) => {
           obj[layout.id] = layout
           return obj
         }, {})
@@ -27,8 +27,8 @@ const byId = (state = {}, action) => {
 
 const ids = (state = [], action) => {
   switch (action.type) {
-    case RECEIVE_LAYOUTS:
-      return action.layouts.map(layout => layout.id)
+    case FETCH_LAYOUTS_SUCCESS:
+      return action.response.map(layout => layout.id)
     default:
       return state
   }

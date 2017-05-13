@@ -1,17 +1,16 @@
 import { combineReducers } from 'redux'
-import { ADD_PLAYER } from '../constants/ActionTypes'
+import { ADD_PLAYER_SUCCESS } from '../constants/ActionTypes'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case ADD_PLAYER:
+    case ADD_PLAYER_SUCCESS:
       return {
         ...state,
-        [action.id]: {
-          id: action.id,
-          name: action.name,
-          icon: action.icon,
-          number: action.number,
-          color: action.color
+        [action.response.id]: {
+          id: action.response.id,
+          name: action.response.name,
+          icon: action.response.icon,
+          number: action.response.number
         }
       }
     default:
@@ -21,8 +20,8 @@ const byId = (state = {}, action) => {
 
 const ids = (state = [], action) => {
   switch (action.type) {
-    case ADD_PLAYER:
-      return [...state, action.id]
+    case ADD_PLAYER_SUCCESS:
+      return [...state, action.response.id]
     default:
       return state
   }
