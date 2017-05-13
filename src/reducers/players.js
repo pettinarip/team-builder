@@ -6,12 +6,7 @@ const byId = (state = {}, action) => {
     case ADD_PLAYER_SUCCESS:
       return {
         ...state,
-        [action.response.id]: {
-          id: action.response.id,
-          name: action.response.name,
-          icon: action.response.icon,
-          number: action.response.number
-        }
+        [action.response.id]: action.response
       }
     default:
       return state
