@@ -7,9 +7,11 @@ export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)
 export const addPlayer = createAsyncAction('ADD_PLAYER', api.addPlayer)
 
 export const changeLayoutSelection = id => (dispatch, getState) => {
-  if (getState().layouts.selectedId !== id) {
+  const layouts = getState().layouts
+  if (layouts.selectedId !== id) {
     dispatch({
-      type: types.RESET_POSITIONS
+      type: types.RESET_POSITIONS,
+      playersCount: layouts.byId[id].config.reduce((acum, x) => acum + x, 0)
     })
     dispatch({
       type: types.SELECT_LAYOUT,
@@ -18,14 +20,15 @@ export const changeLayoutSelection = id => (dispatch, getState) => {
   }
 }
 
-export const removePlayerPosition = id => ({
+export const removePlayerPosition = (id, position) => ({
   type: types.REMOVE_PLAYER_POSITION,
-  id
+  id,
+  position
 })
 
 export const addPlayerPosition = (id, position, prevId) => dispatch => {
   if (prevId) {
-    dispatch(removePlayerPosition(id))
+    dispatch(removePlayerPosition(prevId, position))
   }
   dispatch({
     type: types.ADD_PLAYER_POSITION,

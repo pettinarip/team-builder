@@ -24,10 +24,12 @@ export const getAllLayouts = state =>
 export const getActiveLayout = state =>
   fromLayouts.getActiveLayout(state.layouts)
 
-export const getPlayersByPositions = state =>
-  state.positions.ids.reduce((positions, id) => {
+export const getPositions = state => {
+  return Object.keys(state.positions).reduce((result, position) => {
+    if (!position) return result
     return {
-      ...positions,
-      [state.positions.byId[id]]: state.players.byId[id]
+      ...result,
+      [position]: fromPlayers.getPlayer(state.players, state.positions[position])
     }
   }, {})
+}

@@ -27,7 +27,7 @@ const Layout = ({ config, playersPositions, removePlayer }) => {
               number={player.number}
               position={player.position}
               key={player.position}
-              onClick={() => removePlayer(player.id)}
+              onClick={() => player.id && removePlayer(player.id, player.position)}
             />
           )}
         </div>
