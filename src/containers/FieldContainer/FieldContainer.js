@@ -1,20 +1,26 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
+import * as actions from '../../actions'
 import { getActiveLayout, getPlayersByPositions } from '../../reducers'
 import Field from '../../components/Field'
 
-const FieldContainer = ({ layout, playersPositions }) => {
+const FieldContainer = ({ layout, playersPositions, removePlayerPosition }) => {
   return (
     <div>
-      <Field layout={layout} playersPositions={playersPositions} />
+      <Field
+        layout={layout}
+        playersPositions={playersPositions}
+        removePlayer={removePlayerPosition}
+      />
     </div>
   )
 }
 
 FieldContainer.propTypes = {
   layout: PropTypes.object,
-  playersPositions: PropTypes.object
+  playersPositions: PropTypes.object,
+  removePlayerPosition: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
@@ -23,5 +29,6 @@ const mapStateToProps = (state) => ({
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  actions
 )(FieldContainer)

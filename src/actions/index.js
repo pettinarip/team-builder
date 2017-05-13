@@ -18,12 +18,14 @@ export const changeLayoutSelection = id => (dispatch, getState) => {
   }
 }
 
+export const removePlayerPosition = id => ({
+  type: types.REMOVE_PLAYER_POSITION,
+  id
+})
+
 export const addPlayerPosition = (id, position, prevId) => dispatch => {
   if (prevId) {
-    dispatch({
-      type: types.REMOVE_PLAYER_POSITION,
-      id
-    })
+    dispatch(removePlayerPosition(id))
   }
   dispatch({
     type: types.ADD_PLAYER_POSITION,

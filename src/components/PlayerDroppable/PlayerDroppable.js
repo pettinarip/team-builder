@@ -19,24 +19,29 @@ function collect (connect, monitor) {
   }
 }
 
-const PlayerDroppable = ({ connectDropTarget, isOver, ...props }) => {
+const PlayerDroppable = ({ connectDropTarget, isOver, onClick, ...props }) => {
   return connectDropTarget(
-    <div className={`player ${props.className}`} title={props.name}>
+    <div
+      className={`player ${props.className}`}
+      title={props.name}
+      onClick={() => onClick(props.id)}
+    >
       <div className='player-number'>{props.number}</div>
     </div>
   )
 }
 
 PlayerDroppable.propTypes = {
-  className: PropTypes.string,
   id: PropTypes.string,
+  position: PropTypes.number.isRequired,
+  connectDropTarget: PropTypes.func.isRequired,
+  onClick: PropTypes.func.isRequired,
+  isOver: PropTypes.bool.isRequired,
   name: PropTypes.string,
   icon: PropTypes.string,
   number: PropTypes.number,
   color: PropTypes.string,
-  position: PropTypes.number,
-  connectDropTarget: PropTypes.func,
-  isOver: PropTypes.bool
+  className: PropTypes.string
 }
 
 export default DropTarget(ItemTypes.PLAYER, squareTarget, collect)(PlayerDroppable)
