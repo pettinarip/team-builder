@@ -1,9 +1,9 @@
 import React from 'react'
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-import FieldContainer from '../FieldContainer'
-import LayoutSelectorContainer from '../LayoutSelectorContainer'
-import PlayerContainer from '../PlayerContainer'
+import FieldContainer from '../../containers/FieldContainer'
+import LayoutSelectorContainer from '../../containers/LayoutSelectorContainer'
+import PlayerContainer from '../../containers/PlayerContainer'
 
 const App = () => {
   return (
