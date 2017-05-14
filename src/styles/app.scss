@@ -150,21 +150,20 @@ header {
   }
 }
 
-.layout-selector {
+.item {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: $secondary-color;
+  color: #FFF;
+  border-radius: 3px;
+  margin-right: 5px;
 
-  .item {
-    display: inline-block;
-    padding: 3px 8px;
-    background-color: $secondary-color;
-    color: #FFF;
-    border-radius: 3px;
-    margin-right: 5px;
-
-    &.selected {
-      background-color: $primary-color; 
-    }
+  &.selected {
+    background-color: $primary-color;
   }
+}
 
+.layout-selector {
   .layout-description {
     cursor: pointer;
 

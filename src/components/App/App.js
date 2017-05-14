@@ -4,6 +4,7 @@ import HTML5Backend from 'react-dnd-html5-backend'
 import FieldContainer from '../../containers/FieldContainer'
 import LayoutSelectorContainer from '../../containers/LayoutSelectorContainer'
 import PlayerContainer from '../../containers/PlayerContainer'
+import SportSelector from '../SportSelector'
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
       </header>
       <section className='content'>
         <div className='left-content'>
+          <SportSelector />
           <LayoutSelectorContainer />
           <PlayerContainer />
         </div>
