@@ -7,7 +7,7 @@ import Field from '../../components/Field'
 
 const FieldContainer = ({ layout, playersPositions, addPlayerPosition, removePlayerPosition }) => {
   return (
-    <div>
+    <div className='layout-wrapper'>
       <Field
         layout={layout}
         playersPositions={playersPositions}

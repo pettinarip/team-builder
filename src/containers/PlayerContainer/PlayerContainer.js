@@ -25,25 +25,25 @@ const PlayerContainer = ({ players, addPlayer, connectDropTarget, ...props }) =>
   }
 
   return connectDropTarget(
-    <div className='player-selector list-container'>
-      <div className='title'>Players</div>
-      <div className='subtitle'>
-        <div className='player add-player' onClick={() => addPlayer(makeFakePlayer())}>
-          <div className='player-number'>+</div>
+    <div className='settings-field-wrapper'>
+      <label className='settings-field-heading'>Players</label>
+      <div className='settings-field'>
+        <div className='list'>
+          <div className='player add-player' onClick={() => addPlayer(makeFakePlayer())}>
+            <div className='player-number'>+</div>
+          </div>
+          {players.map(player =>
+            <PlayerDraggable
+              className='active'
+              id={player.id}
+              color={player.color}
+              number={player.number}
+              onDropped={props.addPlayerPosition}
+              onDroppedOutside={props.removePlayerPosition}
+              key={player.id}
+            />
+          )}
         </div>
-      </div>
-      <div className='list'>
-        {players.map(player =>
-          <PlayerDraggable
-            className='active'
-            id={player.id}
-            color={player.color}
-            number={player.number}
-            onDropped={props.addPlayerPosition}
-            onDroppedOutside={props.removePlayerPosition}
-            key={player.id}
-          />
-        )}
       </div>
     </div>
   )

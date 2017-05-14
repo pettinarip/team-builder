@@ -7,21 +7,20 @@ import PlayerContainer from '../../containers/PlayerContainer'
 
 const App = () => {
   return (
-    <div>
+    <div className='container'>
       <header>
         <h1 className='super-title'>Team lineup</h1>
+        <p>Build your team and shear it with your teammates!</p>
       </header>
-      <div className='container'>
-        <div className='content'>
-          <div className='left-content'>
-            <LayoutSelectorContainer />
-          </div>
-          <FieldContainer />
-          <div className='right-content'>
-            <PlayerContainer />
-          </div>
+      <section className='content'>
+        <div className='left-content'>
+          <LayoutSelectorContainer />
+          <PlayerContainer />
         </div>
-      </div>
+        <div className='right-content'>
+          <FieldContainer />
+        </div>
+      </section>
     </div>
   )
 }

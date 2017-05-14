@@ -1,22 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const LayoutSelector = ({ layouts, onLayoutClick }) => {
+const LayoutSelector = ({ layouts, selected, onLayoutClick }) => {
   return (
     <div className='layout-selector list-container'>
-      <div className='title'>Tactics</div>
       <div className='list'>
-        <div className='item'>
-          {layouts.map(layout =>
+        {layouts.map(layout =>
+          <div
+            className={`item ${selected && selected.id === layout.id ? 'selected' : ''}`}
+            key={layout.id}
+          >
             <div
               className='layout-description'
               onClick={() => onLayoutClick(layout.id)}
-              key={layout.id}
             >
               {layout.config.join('-')}
             </div>
-          )}
-        </div>
+          </div>
+        )}
       </div>
     </div>
   )
@@ -24,6 +25,7 @@ const LayoutSelector = ({ layouts, onLayoutClick }) => {
 
 LayoutSelector.propTypes = {
   layouts: PropTypes.array.isRequired,
+  selected: PropTypes.object,
   onLayoutClick: PropTypes.func.isRequired
 }
 
