@@ -20,7 +20,11 @@ const playerSource = {
         id: dropResult.id,
         position: dropResult.position
       }
-      props.onDropped(source, target)
+      if (target.position) {
+        props.onDropped(source, target)
+      } else {
+        props.onDroppedOutside(source.id, source.position)
+      }
     }
   }
 }
@@ -48,6 +52,7 @@ PlayerDraggable.propTypes = {
   number: PropTypes.number,
   color: PropTypes.string,
   onDropped: PropTypes.func,
+  onDroppedOutside: PropTypes.func,
   connectDragSource: PropTypes.func,
   isDragging: PropTypes.bool
 }

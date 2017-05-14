@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
-import { ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS } from '../constants/ActionTypes'
+import {
+  ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS
+} from '../constants/ActionTypes'
 
 const byId = (state = {}, action) => {
   switch (action.type) {

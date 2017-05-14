@@ -4,7 +4,7 @@ import { DropTarget } from 'react-dnd'
 import ItemTypes from '../../constants/ItemTypes'
 import PlayerDraggable from '../PlayerDraggable'
 
-const squareTarget = {
+const playerTarget = {
   drop (props) {
     return {
       position: props.position,
@@ -20,9 +20,15 @@ function collect (connect, monitor) {
   }
 }
 
-const PlayerDroppable = ({ connectDropTarget, addPlayer, onClick, ...props }) => {
+const PlayerDroppable = ({ connectDropTarget, addPlayer, removePlayer, ...props }) => {
   return connectDropTarget(
-    <div><PlayerDraggable {...props} onDropped={addPlayer} /></div>
+    <div>
+      <PlayerDraggable
+        {...props}
+        onDropped={addPlayer}
+        onDroppedOutside={removePlayer}
+      />
+    </div>
   )
 }
 
@@ -30,9 +36,9 @@ PlayerDroppable.propTypes = {
   id: PropTypes.string,
   position: PropTypes.number.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  onClick: PropTypes.func.isRequired,
   isOver: PropTypes.bool.isRequired,
   addPlayer: PropTypes.func.isRequired,
+  removePlayer: PropTypes.func.isRequired,
   name: PropTypes.string,
   icon: PropTypes.string,
   number: PropTypes.number,
@@ -40,4 +46,4 @@ PlayerDroppable.propTypes = {
   className: PropTypes.string
 }
 
-export default DropTarget(ItemTypes.PLAYER, squareTarget, collect)(PlayerDroppable)
+export default DropTarget(ItemTypes.PLAYER, playerTarget, collect)(PlayerDroppable)

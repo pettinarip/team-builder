@@ -32,7 +32,7 @@ export const cleanPlayerPosition = position => ({
 })
 
 export const addPlayerPosition = (source, target) => dispatch => {
-  if (target.position) {
+  if (target.id && target.position) {
     dispatch(removePlayerPosition(target.id, target.position))
   }
   if (source.position) {
