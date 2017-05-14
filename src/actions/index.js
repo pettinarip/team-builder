@@ -26,13 +26,21 @@ export const removePlayerPosition = (id, position) => ({
   position
 })
 
-export const addPlayerPosition = (id, position, prevId) => dispatch => {
-  if (prevId) {
-    dispatch(removePlayerPosition(prevId, position))
+export const cleanPlayerPosition = position => ({
+  type: types.CLEAN_PLAYER_POSITION,
+  position
+})
+
+export const addPlayerPosition = (source, target) => dispatch => {
+  if (target.position) {
+    dispatch(removePlayerPosition(target.id, target.position))
+  }
+  if (source.position) {
+    dispatch(cleanPlayerPosition(source.position))
   }
   dispatch({
     type: types.ADD_PLAYER_POSITION,
-    id,
-    position
+    id: source.id,
+    position: target.position
   })
 }

@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION } from '../constants/ActionTypes'
+import { ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS } from '../constants/ActionTypes'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
@@ -18,6 +18,13 @@ const byId = (state = {}, action) => {
         ...state,
         [action.id]: { ...state[action.id], active: false }
       }
+    case RESET_POSITIONS:
+      return Object.entries(state).reduce((result, [id, player]) => {
+        return {
+          ...result,
+          [id]: { ...player, active: false }
+        }
+      }, {})
     default:
       return state
   }

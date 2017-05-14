@@ -1,5 +1,5 @@
 import {
-  RESET_POSITIONS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION
+  RESET_POSITIONS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, CLEAN_PLAYER_POSITION
 } from '../constants/ActionTypes'
 
 export default (state = {}, action) => {
@@ -12,6 +12,7 @@ export default (state = {}, action) => {
         [action.position]: action.id
       }
     case REMOVE_PLAYER_POSITION:
+    case CLEAN_PLAYER_POSITION:
       return {
         ...state,
         [action.position]: null

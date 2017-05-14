@@ -12,7 +12,15 @@ const playerSource = {
   endDrag (props, monitor) {
     if (monitor.didDrop()) {
       const dropResult = monitor.getDropResult()
-      props.onDropped(props.id, dropResult.position, dropResult.prevId)
+      const source = {
+        id: props.id,
+        position: props.position
+      }
+      const target = {
+        id: dropResult.id,
+        position: dropResult.position
+      }
+      props.onDropped(source, target)
     }
   }
 }

@@ -5,12 +5,13 @@ import * as actions from '../../actions'
 import { getActiveLayout, getPositions } from '../../reducers'
 import Field from '../../components/Field'
 
-const FieldContainer = ({ layout, playersPositions, removePlayerPosition }) => {
+const FieldContainer = ({ layout, playersPositions, addPlayerPosition, removePlayerPosition }) => {
   return (
     <div>
       <Field
         layout={layout}
         playersPositions={playersPositions}
+        addPlayer={addPlayerPosition}
         removePlayer={removePlayerPosition}
       />
     </div>
@@ -20,6 +21,7 @@ const FieldContainer = ({ layout, playersPositions, removePlayerPosition }) => {
 FieldContainer.propTypes = {
   layout: PropTypes.object,
   playersPositions: PropTypes.object,
+  addPlayerPosition: PropTypes.func.isRequired,
   removePlayerPosition: PropTypes.func.isRequired
 }
 

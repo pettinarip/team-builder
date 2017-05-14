@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import PlayerDroppable from '../PlayerDroppable'
 
-const Layout = ({ config, playersPositions, removePlayer }) => {
+const Layout = ({ config, playersPositions, addPlayer, removePlayer }) => {
   let index = 0
   const players = config.map(lineCount => {
     const slice = Array.apply(null, Array(lineCount)).map(
@@ -27,6 +27,7 @@ const Layout = ({ config, playersPositions, removePlayer }) => {
               number={player.number}
               position={player.position}
               key={player.position}
+              addPlayer={addPlayer}
               onClick={() => player.id && removePlayer(player.id, player.position)}
             />
           )}
@@ -39,7 +40,8 @@ const Layout = ({ config, playersPositions, removePlayer }) => {
 Layout.propTypes = {
   config: PropTypes.array,
   playersPositions: PropTypes.object,
-  removePlayer: PropTypes.func
+  addPlayer: PropTypes.func.isRequired,
+  removePlayer: PropTypes.func.isRequired
 }
 
 export default Layout
