@@ -46,6 +46,18 @@ describe('layouts reducer', () => {
     it('should contains no other layout', () => {
       expect(layouts.getLayout(state, 3)).toEqual(undefined)
     })
+
+    it('should list all layouts', () => {
+      expect(layouts.getAllLayouts(state)).toEqual([
+        {
+          id: 1,
+          config: [4, 4, 2]
+        }, {
+          id: 2,
+          config: [3, 5, 2]
+        }
+      ])
+    })
   })
 
   describe('when a layout is selected', () => {
