@@ -30,6 +30,20 @@ header {
   margin-bottom: 100px;
 }
 
+footer {
+  margin-top: 50px;
+
+  .footer-link {
+    text-align: center;
+    padding: 50px 0;
+  }
+}
+
+a {
+  color: #09C;
+  text-decoration: none;
+}
+
 .content {
   width: 1050px;
   margin: 0 auto;

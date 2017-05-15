@@ -23,6 +23,11 @@ const App = () => {
           <FieldContainer />
         </div>
       </section>
+      <footer>
+        <div className='footer-link'>
+          by <a href='https://github.com/pettinarip' target='_blank'>@pettinarip</a>
+        </div>
+      </footer>
     </div>
   )
 }
