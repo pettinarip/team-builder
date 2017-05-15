@@ -25,7 +25,7 @@ const App = () => {
       </section>
       <footer>
         <div className='footer-link'>
-          by <a href='https://github.com/pettinarip' target='_blank'>@pettinarip</a>
+          <small>by</small> <a href='https://github.com/pettinarip' target='_blank'>@pettinarip</a>
         </div>
       </footer>
     </div>
