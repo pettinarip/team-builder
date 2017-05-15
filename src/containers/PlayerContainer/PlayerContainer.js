@@ -5,6 +5,7 @@ import { DropTarget } from 'react-dnd'
 import ItemTypes from '../../constants/ItemTypes'
 import * as actions from '../../actions'
 import { getInactivePlayers } from '../../reducers'
+import SettingField from '../../components/SettingField'
 import PlayerDraggable from '../../components/PlayerDraggable'
 
 function collect (connect, monitor) {
@@ -25,9 +26,8 @@ const PlayerContainer = ({ players, addPlayer, connectDropTarget, ...props }) =>
   }
 
   return connectDropTarget(
-    <div className='settings-field-wrapper'>
-      <label className='settings-field-heading'>Players</label>
-      <div className='settings-field'>
+    <div>
+      <SettingField title='Player'>
         <div className='list'>
           <div
             className='player add-player'
@@ -48,7 +48,7 @@ const PlayerContainer = ({ players, addPlayer, connectDropTarget, ...props }) =>
             />
           )}
         </div>
-      </div>
+      </SettingField>
     </div>
   )
 }

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import * as actions from '../../actions'
 import { getAllLayouts, getActiveLayout } from '../../reducers'
+import SettingField from '../../components/SettingField'
 import LayoutSelector from '../../components/LayoutSelector'
 
 class LayoutSelectorContainer extends Component {
@@ -18,16 +19,13 @@ class LayoutSelectorContainer extends Component {
   render () {
     const { layouts, selected, changeLayoutSelection } = this.props
     return (
-      <div className='settings-field-wrapper'>
-        <label className='settings-field-heading'>Tactics</label>
-        <div className='settings-field'>
-          <LayoutSelector
-            layouts={layouts}
-            selected={selected}
-            onLayoutClick={changeLayoutSelection}
-          />
-        </div>
-      </div>
+      <SettingField title='Tactics'>
+        <LayoutSelector
+          layouts={layouts}
+          selected={selected}
+          onLayoutClick={changeLayoutSelection}
+        />
+      </SettingField>
     )
   }
 }
