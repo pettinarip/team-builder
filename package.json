@@ -6,7 +6,7 @@
   "scripts": {
     "build": "rm -rf ./dist && NODE_ENV=production webpack --progress --profile --colors",
     "dev": "webpack-dev-server --watch --progress --colors",
-    "test": "jest --watch"
+    "test": "jest"
   },
   "keywords": [
     "team",
