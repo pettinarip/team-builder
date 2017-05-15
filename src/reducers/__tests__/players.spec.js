@@ -1,5 +1,5 @@
-import reducer, * as players from './players'
-import * as types from '../constants/ActionTypes'
+import reducer, * as players from '../players'
+import * as types from '../../constants/ActionTypes'
 
 describe('players reducer', () => {
   it('should handle initial state', () => {

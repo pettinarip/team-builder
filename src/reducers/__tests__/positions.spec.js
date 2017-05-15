@@ -1,5 +1,5 @@
-import reducer, * as positions from './positions'
-import * as types from '../constants/ActionTypes'
+import reducer from '../positions'
+import * as types from '../../constants/ActionTypes'
 
 describe('positions reducer', () => {
   it('should handle initial state', () => {

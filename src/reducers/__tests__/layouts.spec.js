@@ -1,5 +1,5 @@
-import reducer, * as layouts from './layouts'
-import * as types from '../constants/ActionTypes'
+import reducer, * as layouts from '../layouts'
+import * as types from '../../constants/ActionTypes'
 
 describe('layouts reducer', () => {
   it('should handle initial state', () => {

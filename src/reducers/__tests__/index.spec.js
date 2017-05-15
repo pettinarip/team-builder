@@ -1,4 +1,4 @@
-import * as selectors from './index'
+import * as selectors from '../index'
 
 describe('selectors', () => {
   describe('getPositions', () => {
