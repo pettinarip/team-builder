@@ -72,12 +72,26 @@ a {
   }
 }
 
+.item {
+  display: inline-block;
+  padding: 3px 8px;
+  background-color: $secondary-color;
+  color: #FFF;
+  border-radius: 3px;
+  margin-right: 5px;
+
+  &.selected, &:hover {
+    background-color: $primary-color;
+  }
+}
+
 .player {
   display: inline-block;
   width: 25px;
   height: 25px;
   cursor: pointer;
   text-align: center;
+  padding: 0;
 
   font-size: 12px;
 
@@ -97,12 +111,26 @@ a {
   }
 
   &.active {
-    background-color: $primary-color;
     color: #fff;
+    background-color: #999;
     cursor: -webkit-grab;
   }
-}
 
+  &.item {
+    padding: 0;
+    margin-bottom: 5px;
+    background-color: $secondary-color;
+
+    &:hover {
+      background-color: $primary-color;
+    }
+  }
+
+  &.add-player {
+    margin-right: 5px;
+    background-color: #CCC;
+  }
+}
 
 .settings-field-wrapper {
   position: relative;
@@ -124,11 +152,6 @@ a {
     position: relative;
     padding: 20px;
     padding-bottom: 0;
-
-    .player {
-      margin-bottom: 5px;
-      margin-right: 5px;
-    }
   }
 }
 
@@ -161,19 +184,6 @@ a {
         box-shadow: 1px 1px 2px #000;
       }
     }
-  }
-}
-
-.item {
-  display: inline-block;
-  padding: 3px 8px;
-  background-color: $secondary-color;
-  color: #FFF;
-  border-radius: 3px;
-  margin-right: 5px;
-
-  &.selected {
-    background-color: $primary-color;
   }
 }
 

@@ -29,12 +29,16 @@ const PlayerContainer = ({ players, addPlayer, connectDropTarget, ...props }) =>
       <label className='settings-field-heading'>Players</label>
       <div className='settings-field'>
         <div className='list'>
-          <div className='player add-player' onClick={() => addPlayer(makeFakePlayer())}>
+          <div
+            className='player add-player'
+            title='Add new player'
+            onClick={() => addPlayer(makeFakePlayer())}
+          >
             <div className='player-number'>+</div>
           </div>
           {players.map(player =>
             <PlayerDraggable
-              className='active'
+              className='item active'
               id={player.id}
               color={player.color}
               number={player.number}
