@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AddPlayerButton component should render correctly 1`] = `
+<div
+  className="player add-player"
+  onClick={[Function]}
+  title="Add new player"
+>
+  <div
+    className="player-number"
+  >
+    +
+  </div>
+</div>
+`;
