@@ -18,7 +18,7 @@ describe('AddPlayerButton component', () => {
     expect(tree).toMatchSnapshot()
   })
 
-  it('should call add player function when clicked', () => {
+  it('should call onAddPlayer function when clicked', () => {
     const component = shallow(
       <AddPlayerButton onAddPlayer={addPlayer} />
     )

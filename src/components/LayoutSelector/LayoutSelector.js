@@ -7,7 +7,11 @@ const LayoutSelector = ({ layouts, selected, onLayoutClick }) => {
       <div className='list'>
         {layouts.map(layout =>
           <div
-            className={`item ${selected && selected.id === layout.id ? 'selected' : ''}`}
+            className={
+              selected && selected.id === layout.id
+              ? 'item selected'
+              : 'item'
+            }
             key={layout.id}
           >
             <div

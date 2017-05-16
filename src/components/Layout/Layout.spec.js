@@ -12,7 +12,7 @@ describe('Layout component', () => {
     removePlayer = jest.fn()
   })
 
-  it('should render the lines in the config count', () => {
+  it('should render the lines', () => {
     const config = [4, 4, 2]
     const component = shallow(
       <Layout
@@ -26,7 +26,7 @@ describe('Layout component', () => {
     expect(component.find('.line').length).toEqual(3)
   })
 
-  it('should render the config players count', () => {
+  it('should render the players', () => {
     const config = [4, 4, 2]
     const component = shallow(
       <Layout
