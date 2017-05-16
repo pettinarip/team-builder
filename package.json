@@ -4,7 +4,7 @@
   "description": "Team lineup builder",
   "main": "src/index.js",
   "scripts": {
-    "build": "rm -rf ./dist && NODE_ENV=production webpack --progress --profile --colors",
+    "build": "rm -rf ./dist && NODE_ENV=production webpack -p --progress --profile --colors",
     "dev": "webpack-dev-server --watch --progress --colors",
     "test": "jest"
   },
@@ -57,6 +57,7 @@
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.5.1",
+    "webpack-bundle-analyzer": "^2.8.1",
     "webpack-dev-server": "^2.4.5"
   }
 }

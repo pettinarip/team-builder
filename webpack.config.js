@@ -1,9 +1,35 @@
 const webpack = require('webpack')
 const path = require('path')
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isProduction = nodeEnv === 'production'
+
+const commonPlugins = [
+  new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify(nodeEnv)
+    }
+  }),
+  new HtmlWebpackPlugin({
+    template: 'index.html'
+  })
+]
+
+const prodPlugins = [
+  new BundleAnalyzerPlugin({
+    analyzerMode: 'static'
+  }),
+  new webpack.optimize.CommonsChunkPlugin({
+    name: 'vendor',
+    filename: 'vendor-[hash].min.js',
+    minChunks (module, count) {
+      const context = module.context
+      return context && context.indexOf('node_modules') >= 0
+    }
+  })
+]
 
 module.exports = {
   devtool: isProduction ? false : 'source-map',
@@ -12,16 +38,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].js'
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: JSON.stringify(nodeEnv)
-      }
-    }),
-    new HtmlWebpackPlugin({
-      template: 'index.html'
-    })
-  ],
+  plugins: commonPlugins.concat(prodPlugins),
   module: {
     rules: [
       {
