@@ -38,7 +38,7 @@ module.exports = {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].js'
   },
-  plugins: commonPlugins.concat(prodPlugins),
+  plugins: isProduction ? commonPlugins.concat(prodPlugins) : commonPlugins,
   module: {
     rules: [
       {
