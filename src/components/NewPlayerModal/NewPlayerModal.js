@@ -8,33 +8,20 @@ const NewPlayerModal = props => {
   return (
     <Modal onRequestClose={onRequestClose}>
       <form onSubmit={handleSubmit(onSave.bind(this))}>
-        <div>
-          <label>Name</label>
-          <Field
-            name='name'
-            component='input'
-            type='text'
-          />
-        </div>
-        <div>
-          <label>Number</label>
-          <Field
-            name='number'
-            component='input'
-            type='number'
-          />
-        </div>
-        <div>
-          <label>Icon</label>
-          <Field
-            name='icon'
-            component='input'
-            type='text'
-          />
-        </div>
-        <div>
-          <button type='submit' disabled={pristine || submitting}>Agregar</button>
-        </div>
+        <Field
+          autoFocus
+          name='name'
+          component='input'
+          type='text'
+          placeholder='Francesco Totti'
+        />
+        <Field
+          name='number'
+          component='input'
+          type='number'
+          placeholder='Number'
+        />
+        <button type='submit' disabled={pristine || submitting}>Agregar</button>
       </form>
     </Modal>
   )
