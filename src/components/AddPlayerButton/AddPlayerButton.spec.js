@@ -12,15 +12,15 @@ describe('AddPlayerButton component', () => {
 
   it('should render correctly', () => {
     const component = renderer.create(
-      <AddPlayerButton onAddPlayer={() => null} />
+      <AddPlayerButton onClick={() => null} />
     )
     const tree = component.toJSON()
     expect(tree).toMatchSnapshot()
   })
 
-  it('should call onAddPlayer function when clicked', () => {
+  it('should call onClick function when clicked', () => {
     const component = shallow(
-      <AddPlayerButton onAddPlayer={addPlayer} />
+      <AddPlayerButton onClick={addPlayer} />
     )
     component.simulate('click')
     expect(addPlayer).toHaveBeenCalled()

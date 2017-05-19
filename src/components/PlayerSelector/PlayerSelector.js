@@ -5,7 +5,7 @@ import AddPlayerButton from '../AddPlayerButton'
 
 const PlayerSelector = ({ players, ...props }) => (
   <div className='list'>
-    <AddPlayerButton onAddPlayer={props.onAddPlayer} />
+    <AddPlayerButton onClick={props.onAddPlayerClick} />
     {players.map(player =>
       <PlayerDraggable
         className='item active'
@@ -22,7 +22,7 @@ const PlayerSelector = ({ players, ...props }) => (
 
 PlayerSelector.propTypes = {
   players: PropTypes.array.isRequired,
-  onAddPlayer: PropTypes.func.isRequired,
+  onAddPlayerClick: PropTypes.func.isRequired,
   onAddPlayerPosition: PropTypes.func.isRequired,
   onRemovePlayerPosition: PropTypes.func.isRequired
 }

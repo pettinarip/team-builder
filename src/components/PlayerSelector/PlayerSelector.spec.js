@@ -15,13 +15,13 @@ describe('PlayerSelector component', () => {
     const component = shallow(
       <PlayerSelector
         players={players}
-        onAddPlayer={addPlayer}
+        onAddPlayerClick={addPlayer}
         onAddPlayerPosition={addPlayerPosition}
         onRemovePlayerPosition={removePlayerPosition}
       />
     )
 
-    expect(component.contains(<AddPlayerButton onAddPlayer={addPlayer} />)).toEqual(true)
+    expect(component.contains(<AddPlayerButton onClick={addPlayer} />)).toEqual(true)
   })
 
   it('should render all players', () => {
@@ -29,7 +29,7 @@ describe('PlayerSelector component', () => {
     const component = shallow(
       <PlayerSelector
         players={players}
-        onAddPlayer={addPlayer}
+        onAddPlayerClick={addPlayer}
         onAddPlayerPosition={addPlayerPosition}
         onRemovePlayerPosition={removePlayerPosition}
       />

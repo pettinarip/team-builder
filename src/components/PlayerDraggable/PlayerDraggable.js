@@ -49,7 +49,9 @@ PlayerDraggable.propTypes = {
   id: PropTypes.string,
   name: PropTypes.string,
   icon: PropTypes.string,
-  number: PropTypes.number,
+  number: PropTypes.oneOfType([
+    PropTypes.number, PropTypes.string
+  ]),
   color: PropTypes.string,
   onDropped: PropTypes.func,
   onDroppedOutside: PropTypes.func,

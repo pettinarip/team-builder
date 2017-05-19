@@ -15,14 +15,17 @@ $secondary-color: #7abd7a;
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Open Sans';
-  font-size: 14px;
 
   // background-image: url('../assets/stadium.jpg');
   // background-size: cover;
   background-color: #FAFAFA;
 
   box-sizing: border-box;
+}
+
+body, input, button {
+  font-family: 'Open Sans';
+  font-size: 14px;
 }
 
 header {
@@ -134,9 +137,12 @@ a {
 
 .settings-field-wrapper {
   position: relative;
-  padding-top: 30px;
   padding-bottom: 20px;
   border-bottom: 1px solid #EEE;
+
+  &.label-pad {
+    padding-top: 30px;
+  }
 
   .settings-field-heading {
     position: absolute;
@@ -152,6 +158,26 @@ a {
     position: relative;
     padding: 20px;
     padding-bottom: 0;
+
+    input {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 8px;
+      border: 0;
+      color: #FFF;
+      outline: none;
+
+      &.primary-button:disabled {
+        background-color: $secondary-color;
+      }
+
+      &.primary-button {
+        background-color: $primary-color;
+      }
+    }
   }
 }
 

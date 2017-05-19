@@ -1,12 +1,16 @@
 import { combineReducers } from 'redux'
+import { reducer as formReducer } from 'redux-form'
 import players, * as fromPlayers from './players'
 import layouts, * as fromLayouts from './layouts'
 import positions from './positions'
+import modals from './modals'
 
 export default combineReducers({
+  form: formReducer,
   players,
   layouts,
-  positions
+  positions,
+  modals
 })
 
 export const getAllPlayers = state =>

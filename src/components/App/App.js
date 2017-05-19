@@ -5,6 +5,7 @@ import FieldContainer from '../../containers/FieldContainer'
 import LayoutSelectorContainer from '../../containers/LayoutSelectorContainer'
 import PlayerContainer from '../../containers/PlayerContainer'
 import SportSelector from '../SportSelector'
+import ModalRoot from '../../containers/ModalRoot'
 
 const App = () => {
   return (
@@ -28,6 +29,7 @@ const App = () => {
           <small>by</small> <a href='https://github.com/pettinarip' target='_blank'>@pettinarip</a>
         </div>
       </footer>
+      <ModalRoot />
     </div>
   )
 }

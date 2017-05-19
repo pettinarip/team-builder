@@ -6,6 +6,16 @@ export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)
 
 export const addPlayer = createAsyncAction('ADD_PLAYER', api.addPlayer)
 
+export const showAddPlayerModal = modalType => ({
+  type: types.SHOW_MODAL,
+  modalType: 'NEW_PLAYER',
+  modalProps: {}
+})
+
+export const hideModal = () => ({
+  type: types.HIDE_MODAL
+})
+
 export const changeLayoutSelection = id => (dispatch, getState) => {
   const layouts = getState().layouts
   if (layouts.selectedId !== id) {
