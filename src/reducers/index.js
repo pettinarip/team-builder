@@ -2,11 +2,13 @@ import { combineReducers } from 'redux'
 import players, * as fromPlayers from './players'
 import layouts, * as fromLayouts from './layouts'
 import positions from './positions'
+import modals from './modals'
 
 export default combineReducers({
   players,
   layouts,
-  positions
+  positions,
+  modals
 })
 
 export const getAllPlayers = state =>
