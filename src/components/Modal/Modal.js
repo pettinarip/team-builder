@@ -15,6 +15,7 @@ const baseStyles = {
     transform: 'translate(-50%, -50%)',
     borderRadius: 0,
     border: 0,
+    padding: 0,
     boxShadow: '0 1px 3px rgba(0, 0, 0, 0.25)'
   }
 }
