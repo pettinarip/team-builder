@@ -1,3 +1,9 @@
 language: node_js
 node_js:
-  - "6"
+- '6'
+deploy:
+  provider: heroku
+  api_key:
+    secure: SO6vAXnaQd/MbnnUTvEcShyCo6NTjOeKZheDm2z/FJojY+cSE7F12s8FCnmDkDXMPYcHVl7pXWp+BLy+RkvYFij45LukywxZx5o//TryYz0ihbKatZmJVnxrkezQs/HMZoiNMqTDLOTwN4ggPjfP0UX0qvR9kk4H5kk1522+E3BEyZ0rYc41Psmnal0hBwhIsgdnzybGOI+pldy1mBqQiwgx9h9Rw5OVSDZVCfJYQIe/6VjTCp7KmDqUXlJeyJEuAX+c5blEaW+eWSxoxEsrossD1gtFku/46bgVMmDpgTqNWKKmTcj/vMh9y1FTsaXfnz1c6H17jz1Qm6YnqBRdHwHDQzMilLsSUxU1c42PxZP8gyhMVEeGKE0vETCv1iHD8R1AKJzNJCzhCq8AIvTUW7IcqtLrbu9K9x7XJWk0IAarF8B6qJplE+t70OtgQUPyq81kWh20SxQcQVToDxyX4DF+1s76ijJ3CwZYySqO15ZDkDzRHO7Fqi/k689MlAbdVvHnt9f7ab/N1V7R183Z38tXosJaykdqyKs9r64VOac1U8URANMH05Q+I5eAvgtY/ALisf4yzmddHVfV8ENSePApWorF8RCWHJ6ijixqI//11yUlwRW8J7wt3vlEOJpXmJ+MmMmJdJrjVvXgpVbX4FBiMcsUxWTiYP9z/CmpYvY=
+  app: teamlineup
+  run: "yarn run build"
