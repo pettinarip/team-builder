@@ -169,6 +169,7 @@ a {
       border: 0;
       color: #FFF;
       outline: none;
+      cursor: pointer;
 
       &.primary-button:disabled {
         background-color: $secondary-color;
