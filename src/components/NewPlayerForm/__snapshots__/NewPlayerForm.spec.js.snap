@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NewPlayerForm component should render correctly 1`] = `
+<form
+  className="form-horizontal"
+  onSubmit={[Function]}
+>
+  <div
+    className="settings-field-wrapper label-pad"
+  >
+    <label
+      className="settings-field-heading"
+    >
+      Name
+    </label>
+    <div
+      className="settings-field"
+    >
+      <input
+        autoFocus={true}
+        name="name"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="Francesco Totti"
+        type="text"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="settings-field-wrapper label-pad"
+  >
+    <label
+      className="settings-field-heading"
+    >
+      Number
+    </label>
+    <div
+      className="settings-field"
+    >
+      <input
+        name="number"
+        onBlur={[Function]}
+        onChange={[Function]}
+        onDragStart={[Function]}
+        onDrop={[Function]}
+        onFocus={[Function]}
+        placeholder="10"
+        type="number"
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    className="settings-field-wrapper"
+  >
+    <div
+      className="settings-field"
+    >
+      <button
+        className="primary-button save-button"
+        disabled={true}
+        type="submit"
+      >
+        Add to the team
+      </button>
+    </div>
+  </div>
+</form>
+`;
