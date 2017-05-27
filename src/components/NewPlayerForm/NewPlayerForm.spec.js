@@ -1,7 +1,6 @@
 import React from 'react'
 import { noop } from 'lodash'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme'
 import { createStore } from 'redux'
 import {Provider} from 'react-redux'
 import { reducer as formReducer } from 'redux-form'
