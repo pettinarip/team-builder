@@ -6,7 +6,7 @@ import NewPlayerForm from '../NewPlayerForm'
 
 const NewPlayerModal = ({ onSave, onRequestClose }) => (
   <Modal onRequestClose={onRequestClose}>
-    <NewPlayerForm onSave={onSave} />
+    <NewPlayerForm onSubmit={onSave} />
   </Modal>
 )
 

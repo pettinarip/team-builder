@@ -9,8 +9,8 @@ const between = (min, max) =>
 const maxLength = max =>
   (value, previousValue) => value.length <= max ? value : previousValue
 
-const NewPlayerForm = ({ onSave, handleSubmit, pristine, submitting }) => (
-  <form className='form-horizontal' onSubmit={handleSubmit(onSave.bind(this))}>
+const NewPlayerForm = ({ handleSubmit, pristine, submitting }) => (
+  <form className='form-horizontal' onSubmit={handleSubmit}>
     <SettingField title='Name'>
       <Field
         autoFocus
@@ -33,13 +33,14 @@ const NewPlayerForm = ({ onSave, handleSubmit, pristine, submitting }) => (
       />
     </SettingField>
     <SettingField>
-      <button className='primary-button' type='submit' disabled={pristine || submitting}>Add to the team</button>
+      <button className='primary-button save-button' type='submit' disabled={pristine || submitting}>
+        Add to the team
+      </button>
     </SettingField>
   </form>
 )
 
 NewPlayerForm.propTypes = {
-  onSave: PropTypes.func.isRequired,
   handleSubmit: PropTypes.func,
   pristine: PropTypes.bool,
   submitting: PropTypes.bool
