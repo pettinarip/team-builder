@@ -20,6 +20,10 @@ export const signInWithGithub = () => signIn(
   new firebase.auth.GithubAuthProvider()
 )
 
+export const signInWithGoogle = () => signIn(
+  new firebase.auth.GoogleAuthProvider()
+)
+
 export const signOut = () => ({
   type: types.SIGN_OUT
 })
