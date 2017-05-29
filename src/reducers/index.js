@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux'
 import { reducer as formReducer } from 'redux-form'
+import authReducer from 'core/auth/reducer'
 import players, * as fromPlayers from './players'
 import layouts, * as fromLayouts from './layouts'
 import positions from './positions'
@@ -7,6 +8,7 @@ import modals from './modals'
 
 export default combineReducers({
   form: formReducer,
+  auth: authReducer,
   players,
   layouts,
   positions,

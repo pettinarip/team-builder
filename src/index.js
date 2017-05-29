@@ -1,13 +1,20 @@
 import React from 'react'
 import { render } from 'react-dom'
-import Root from './containers/Root'
+import Root from './view/root'
 import configureStore from './configureStore'
+import { initAuth } from 'core/auth'
 
 import './styles/app.scss'
 
 const store = configureStore()
 
-render(
-  <Root store={store} />,
-  document.getElementById('root')
-)
+const renderApp = Root => {
+  render(
+    <Root store={store} />,
+    document.getElementById('root')
+  )
+}
+
+initAuth(store.dispatch)
+  .then(() => renderApp(Root))
+  .catch(error => console.log(error))

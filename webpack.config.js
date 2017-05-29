@@ -33,10 +33,17 @@ const prodPlugins = [
 
 module.exports = {
   devtool: isProduction ? false : 'source-map',
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].js'
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+    modules: [
+      path.resolve('./src'),
+      'node_modules'
+    ]
   },
   plugins: isProduction ? commonPlugins.concat(prodPlugins) : commonPlugins,
   module: {
@@ -69,5 +76,9 @@ module.exports = {
       { test: /\.[ot]tf$/, use: 'url-loader?limit=65000&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]' },
       { test: /\.eot$/, use: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=assets/fonts/[name].[ext]' }
     ]
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: true
   }
 }
