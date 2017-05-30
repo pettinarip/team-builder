@@ -10,7 +10,7 @@ import ModalRoot from 'view/containers/ModalRoot'
 
 function App ({ authenticated, children, signOut }) {
   return (
-    <div className='container'>
+    <div>
       <Header
         authenticated={authenticated}
         signOut={signOut}

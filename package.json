@@ -17,6 +17,7 @@
   "author": "Pettinari Pablo",
   "license": "MIT",
   "dependencies": {
+    "bourbon-neat": "^2.0.0",
     "firebase": "^4.0.0",
     "history": "^4.6.1",
     "react": "^15.5.4",

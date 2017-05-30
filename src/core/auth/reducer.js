@@ -11,8 +11,8 @@ const authReducer = (state = initialState, action) => {
     case types.SIGN_IN_SUCCESS:
       return {
         authenticated: true,
-        uid: action.payload.uid,
-        user: action.payload
+        uid: action.payload.user.uid,
+        user: action.payload.user.toJSON()
       }
     case types.SIGN_OUT_SUCCESS:
       return {

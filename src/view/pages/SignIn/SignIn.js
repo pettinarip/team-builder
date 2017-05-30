@@ -4,12 +4,12 @@ import PropTypes from 'prop-types'
 import * as actions from 'core/auth/actions'
 
 const SignIn = ({ signInWithGithub, signInWithGoogle }) => (
-  <section className='content'>
+  <section className='sign-in container'>
     <div>
-      <button type='button' onClick={signInWithGithub}>Github</button>
+      <button type='sign-in__button' onClick={signInWithGithub}>Github</button>
     </div>
     <div>
-      <button type='button' onClick={signInWithGoogle}>Google</button>
+      <button type='sign-in__button' onClick={signInWithGoogle}>Google</button>
     </div>
   </section>
 )

@@ -1,3 +1,5 @@
+@import "neat";
+
 @font-face {
   font-family: 'Open Sans';
   src: url('../assets/fonts/Open_Sans/OpenSans-Regular.ttf') format('truetype');
@@ -47,32 +49,51 @@ a {
   text-decoration: none;
 }
 
-.content {
-  width: 1050px;
-  margin: 0 auto;
-
+.container {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,.25);
   background-color: #FFF;
+}
 
-  display: flex;
-  .left-content, .right-content {
-    flex: 1;
+$neat-grid: (
+  columns: 12,
+  gutter: 0,
+);
+
+$main-grid--large: (
+  columns: 12,
+  media: 1070px,
+);
+
+$main-grid--tablet-up: (
+  columns: 12,
+  media: 768px,
+);
+
+.main {
+  @include grid-container;
+
+  @include grid-media($main-grid--large){
+    width: 1050px;
+    margin: 0 auto;
   }
 
-  .left-content {
-  }
+  .main__settings, .main__field {
+    @include grid-column(12);
 
-  .right-content {
-    .layout-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      padding: 20px;
-      background-color: #999;
+    @include grid-media($main-grid--tablet-up){
+      @include grid-column(6);
     }
   }
+}
+
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  background-color: #999;
 }
 
 .item {
