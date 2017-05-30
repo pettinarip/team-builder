@@ -2,10 +2,11 @@ import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import * as actions from 'core/auth/actions'
-import App from 'components/App'
+
+import Builder from 'view/components/Builder'
 
 const AppContainer = ({ signOut }) => (
-  <App signOut={signOut} />
+  <Builder signOut={signOut} />
 )
 
 AppContainer.propTypes = {

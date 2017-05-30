@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as actions from '../../actions'
-import { getAllLayouts, getActiveLayout } from '../../reducers'
-import SettingField from '../../components/SettingField'
-import LayoutSelector from '../../components/LayoutSelector'
+import * as actions from 'actions'
+import { getAllLayouts, getActiveLayout } from 'reducers'
+
+import SettingField from 'view/components/SettingField'
+import LayoutSelector from 'view/components/LayoutSelector'
 
 class LayoutSelectorContainer extends Component {
   componentDidMount () {

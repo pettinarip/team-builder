@@ -2,12 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DropTarget } from 'react-dnd'
-import ItemTypes from '../../constants/ItemTypes'
-import * as actions from '../../actions'
-import { getInactivePlayers } from '../../reducers'
 
-import SettingField from '../../components/SettingField'
-import PlayerSelector from '../../components/PlayerSelector'
+import ItemTypes from 'constants/ItemTypes'
+import * as actions from 'actions'
+import { getInactivePlayers } from 'reducers'
+
+import SettingField from 'view/components/SettingField'
+import PlayerSelector from 'view/components/PlayerSelector'
 
 function collect (connect, monitor) {
   return {

@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import * as actions from '../../actions'
+import * as actions from 'actions'
 
-import NewPlayerModal from '../../components/NewPlayerModal'
+import NewPlayerModal from 'view/components/NewPlayerModal'
 
 const NewPlayerModalContainer = ({ addPlayer, hideModal }) => (
   <NewPlayerModal

@@ -1,9 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import * as actions from '../../actions'
-import { getActiveLayout, getPositions } from '../../reducers'
-import Field from '../../components/Field'
+
+import * as actions from 'actions'
+import { getActiveLayout, getPositions } from 'reducers'
+
+import Field from 'view/components/Field'
 
 const FieldContainer = ({ layout, playersPositions, addPlayerPosition, removePlayerPosition }) => {
   return (

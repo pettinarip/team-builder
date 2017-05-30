@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import * as actions from 'core/auth/actions'
 
-const SignInContainer = ({ signInWithGithub, signInWithGoogle }) => (
+const SignIn = ({ signInWithGithub, signInWithGoogle }) => (
   <div>
     <h1>Sign In!</h1>
     <div>
@@ -15,7 +15,7 @@ const SignInContainer = ({ signInWithGithub, signInWithGoogle }) => (
   </div>
 )
 
-SignInContainer.propTypes = {
+SignIn.propTypes = {
   signInWithGithub: PropTypes.func.isRequired,
   signInWithGoogle: PropTypes.func.isRequired
 }
@@ -23,4 +23,4 @@ SignInContainer.propTypes = {
 export default connect(
   null,
   actions
-)(SignInContainer)
+)(SignIn)

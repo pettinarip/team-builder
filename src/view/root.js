@@ -3,17 +3,22 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import history from './history'
-import AuthRoute from 'containers/AuthRoute'
+import AuthRoute from './containers/AuthRoute'
 
-import SignIn from 'view/containers/SignInContainer'
+import App from './app'
+import SignIn from './pages/SignIn'
 
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router history={history}>
-      <div>
-        <AuthRoute exact path='/' store={store} />
-        <Route path='/sign-in' component={SignIn} />
-      </div>
+      <Route children={() => (
+        <App>
+          <div>
+            <AuthRoute exact path='/' store={store} />
+            <Route path='/sign-in' component={SignIn} />
+          </div>
+        </App>
+      )} />
     </Router>
   </Provider>
 )
