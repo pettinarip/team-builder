@@ -5,11 +5,12 @@ import * as actions from 'core/auth/actions'
 
 const SignIn = ({ signInWithGithub, signInWithGoogle }) => (
   <section className='sign-in container'>
-    <div>
-      <button type='sign-in__button' onClick={signInWithGithub}>Github</button>
+    <h1 className='sign-in__heading'>Sign in</h1>
+    <div className='sign-in__button-wrapper'>
+      <button type='button' className='sign-in__button' onClick={signInWithGithub}>Github</button>
     </div>
-    <div>
-      <button type='sign-in__button' onClick={signInWithGoogle}>Google</button>
+    <div className='sign-in__button-wrapper'>
+      <button type='button' className='sign-in__button' onClick={signInWithGoogle}>Google</button>
     </div>
   </section>
 )

@@ -1,0 +1,27 @@
+.sign-in {
+  @include grid-container;
+
+  @include grid-media($main-grid--small){
+    width: 500px;
+    margin: 0 auto;
+  }
+}
+
+.sign-in__heading {
+  text-align: center;
+  font-weight: normal;
+}
+
+.sign-in__button-wrapper {
+  width: 100%;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.sign-in__button {
+  border: 0;
+  width: 200px;
+  padding: 20px;
+  background-color: $primary-color;
+  color: #FFF;
+}

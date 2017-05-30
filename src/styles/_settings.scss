@@ -1,0 +1,22 @@
+$neat-grid: (
+  columns: 12,
+  gutter: 0,
+);
+
+$main-grid--small: (
+  columns: 12,
+  media: 520px,
+);
+
+$main-grid--large: (
+  columns: 12,
+  media: 1070px,
+);
+
+$main-grid--tablet-mid: (
+  columns: 12,
+  media: 768px,
+);
+
+$primary-color: #629a62;
+$secondary-color: #7abd7a;

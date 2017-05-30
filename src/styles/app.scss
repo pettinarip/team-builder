@@ -1,4 +1,5 @@
-@import "neat";
+@import 'neat';
+@import 'settings', 'player', 'field', 'main', 'sign-in';
 
 @font-face {
   font-family: 'Open Sans';
@@ -6,9 +7,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
-$primary-color: #629a62;
-$secondary-color: #7abd7a;
 
 *, :after, :before {
   box-sizing: inherit;
@@ -53,47 +51,7 @@ a {
   border-radius: 3px;
   box-shadow: 0 1px 3px rgba(0,0,0,.25);
   background-color: #FFF;
-}
-
-$neat-grid: (
-  columns: 12,
-  gutter: 0,
-);
-
-$main-grid--large: (
-  columns: 12,
-  media: 1070px,
-);
-
-$main-grid--tablet-up: (
-  columns: 12,
-  media: 768px,
-);
-
-.main {
-  @include grid-container;
-
-  @include grid-media($main-grid--large){
-    width: 1050px;
-    margin: 0 auto;
-  }
-
-  .main__settings, .main__field {
-    @include grid-column(12);
-
-    @include grid-media($main-grid--tablet-up){
-      @include grid-column(6);
-    }
-  }
-}
-
-.layout-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  padding: 20px;
-  background-color: #999;
+  overflow: hidden;
 }
 
 .item {
@@ -106,132 +64,6 @@ $main-grid--tablet-up: (
 
   &.selected, &:hover {
     background-color: $primary-color;
-  }
-}
-
-.player {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  cursor: pointer;
-  text-align: center;
-  padding: 0;
-
-  font-size: 12px;
-
-  border-radius: 50%;
-  background-color: #EEE;
-
-  -webkit-touch-callout: none; /* iOS Safari */
-    -webkit-user-select: none; /* Safari */
-     -khtml-user-select: none; /* Konqueror HTML */
-       -moz-user-select: none; /* Firefox */
-        -ms-user-select: none; /* Internet Explorer/Edge */
-            user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome and Opera */
-
-  .player-number {
-    line-height: 25px;
-  }
-
-  &.active {
-    color: #fff;
-    background-color: #999;
-    cursor: -webkit-grab;
-  }
-
-  &.item {
-    padding: 0;
-    margin-bottom: 5px;
-    background-color: $secondary-color;
-
-    &:hover {
-      background-color: $primary-color;
-    }
-  }
-
-  &.add-player {
-    margin-right: 5px;
-    background-color: #CCC;
-  }
-}
-
-.settings-field-wrapper {
-  position: relative;
-  padding-bottom: 20px;
-  border-bottom: 1px solid #EEE;
-
-  &.label-pad {
-    padding-top: 30px;
-  }
-
-  .settings-field-heading {
-    position: absolute;
-    top: 0;
-    width: 100%;
-    padding: 20px 20px 0 20px;
-
-    font-size: 12px;
-    color: #999;
-  }
-
-  .settings-field {
-    position: relative;
-    padding: 20px;
-    padding-bottom: 0;
-
-    input {
-      border: 1px solid #ccc;
-      padding: 5px;
-    }
-
-    button {
-      padding: 5px 8px;
-      border: 0;
-      color: #FFF;
-      outline: none;
-      cursor: pointer;
-
-      &.primary-button:disabled {
-        background-color: $secondary-color;
-      }
-
-      &.primary-button {
-        background-color: $primary-color;
-      }
-    }
-  }
-}
-
-.field {
-  width: 343px;
-  height: 500px;
-  background-image: url('../assets/field-bg.jpg');
-
-  display: flex;
-  flex-flow: column nowrap;
-
-  .layout {
-    flex: 1;
-    display: flex;
-    flex-flow: column nowrap;
-    justify-content: space-around;
-    margin: 35px 0 50px 0;
-
-    .line {
-      padding: 0 25px;
-
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: space-around;
-
-      .player {
-        width: 28px;
-        height: 28px;
-
-        box-shadow: 1px 1px 2px #000;
-      }
-    }
   }
 }
 
