@@ -14,7 +14,7 @@ const authReducer = (state = initialState, action) => {
         uid: action.payload.uid,
         user: action.payload
       }
-    case types.SIGN_IN_FAILURE:
+    case types.SIGN_OUT_SUCCESS:
       return {
         authenticated: false,
         uid: null,

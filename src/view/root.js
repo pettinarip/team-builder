@@ -3,10 +3,10 @@ import PropTypes from 'prop-types'
 import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import history from './history'
-import AuthRoute from './containers/AuthRoute'
 
 import App from './app'
-import SignIn from './pages/SignIn'
+import AuthRoute from './containers/AuthRoute'
+import SignInRoute from './containers/SignInRoute'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -15,7 +15,7 @@ const Root = ({ store }) => (
         <App>
           <div>
             <AuthRoute exact path='/' store={store} />
-            <Route path='/sign-in' component={SignIn} />
+            <SignInRoute path='/sign-in' store={store} />
           </div>
         </App>
       )} />
