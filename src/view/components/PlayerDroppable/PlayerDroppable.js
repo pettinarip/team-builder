@@ -42,7 +42,10 @@ PlayerDroppable.propTypes = {
   removePlayer: PropTypes.func.isRequired,
   name: PropTypes.string,
   icon: PropTypes.string,
-  number: PropTypes.number,
+  number: PropTypes.oneOfType([
+    PropTypes.number,
+    PropTypes.string
+  ]),
   color: PropTypes.string,
   className: PropTypes.string
 }
