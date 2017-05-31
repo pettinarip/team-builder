@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
 const neat = require('bourbon-neat').includePaths
 
 const nodeEnv = process.env.NODE_ENV || 'development'
@@ -15,7 +16,11 @@ const commonPlugins = [
   }),
   new HtmlWebpackPlugin({
     template: 'index.html'
-  })
+  }),
+  new CopyWebpackPlugin([{
+    from: 'src/assets',
+    to: './assets'
+  }])
 ]
 
 const prodPlugins = [
