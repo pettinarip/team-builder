@@ -1,5 +1,6 @@
-import reducer, * as layouts from '../layouts'
-import * as types from '../../constants/ActionTypes'
+import reducer from '../reducer'
+import * as layouts from '../selectors'
+import * as types from '../../constants/actionTypes'
 
 describe('layouts reducer', () => {
   it('should handle initial state', () => {
@@ -48,7 +49,7 @@ describe('layouts reducer', () => {
     })
 
     it('should list all layouts', () => {
-      expect(layouts.getAllLayouts(state)).toEqual([
+      expect(layouts.getLayoutsList(state)).toEqual([
         {
           id: 1,
           config: [4, 4, 2]

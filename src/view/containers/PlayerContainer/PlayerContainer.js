@@ -2,10 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DropTarget } from 'react-dnd'
-
-import ItemTypes from 'constants/ItemTypes'
+import ItemTypes from 'core/constants/ItemTypes'
 import * as actions from 'actions'
-import { getInactivePlayers } from 'reducers'
+
+import { getInactivePlayers } from 'core/selectors'
 
 import SettingField from 'view/components/SettingField'
 import PlayerSelector from 'view/components/PlayerSelector'

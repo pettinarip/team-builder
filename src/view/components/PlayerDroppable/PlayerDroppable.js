@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { DropTarget } from 'react-dnd'
 
-import ItemTypes from 'constants/ItemTypes'
+import ItemTypes from 'core/constants/ItemTypes'
 import PlayerDraggable from '../PlayerDraggable'
 
 const playerTarget = {

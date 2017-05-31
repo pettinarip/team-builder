@@ -1,5 +1,5 @@
 export { actions } from './actions'
 export { initAuth } from './auth'
-export { reducer } from './reducer'
+export { default as authReducer } from './reducer'
 export { authSagas } from './sagas'
 export { getAuth, isAuthenticated } from './selectors'

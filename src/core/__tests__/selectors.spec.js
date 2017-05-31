@@ -1,7 +1,7 @@
-import * as selectors from '../index'
+import * as selectors from '../selectors'
 
 describe('selectors', () => {
-  describe('getPositions', () => {
+  describe('getPlayersByPosition', () => {
     let state
 
     beforeEach(() => {
@@ -25,7 +25,7 @@ describe('selectors', () => {
     })
 
     it('should return positions with their corresponding players', () => {
-      expect(selectors.getPositions(state)).toEqual({
+      expect(selectors.getPlayersByPosition(state)).toEqual({
         2: { id: 1, name: 'Player 1' },
         4: { id: 2, name: 'Player 2' },
         9: { id: 3, name: 'Player 3' }
@@ -33,8 +33,8 @@ describe('selectors', () => {
     })
 
     it('should only return ocupied positions', () => {
-      expect(selectors.getPositions(state)[1]).toEqual(undefined)
-      expect(selectors.getPositions(state)[5]).toEqual(undefined)
+      expect(selectors.getPlayersByPosition(state)[1]).toEqual(undefined)
+      expect(selectors.getPlayersByPosition(state)[5]).toEqual(undefined)
     })
   })
 })

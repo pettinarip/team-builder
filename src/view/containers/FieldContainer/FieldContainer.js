@@ -3,11 +3,12 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
 import * as actions from 'actions'
-import { getActiveLayout, getPositions } from 'reducers'
+import { getActiveLayout, getPlayersByPosition } from 'core/selectors'
 
 import Field from 'view/components/Field'
 
-const FieldContainer = ({ layout, playersPositions, addPlayerPosition, removePlayerPosition }) => {
+const FieldContainer = props => {
+  const { layout, playersPositions, addPlayerPosition, removePlayerPosition } = props
   return (
     <div className='layout-wrapper'>
       <Field
@@ -29,7 +30,7 @@ FieldContainer.propTypes = {
 
 const mapStateToProps = (state) => ({
   layout: getActiveLayout(state),
-  playersPositions: getPositions(state)
+  playersPositions: getPlayersByPosition(state)
 })
 
 export default connect(

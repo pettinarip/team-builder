@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux'
 import {
   ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS
-} from '../constants/ActionTypes'
+} from '../constants/actionTypes'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
@@ -45,15 +45,3 @@ export default combineReducers({
   byId,
   ids
 })
-
-export const getPlayer = (state, id) =>
-  state.byId[id]
-
-export const getAllPlayers = state =>
-  state.ids.map(id => getPlayer(state, id))
-
-export const getActivePlayers = state =>
-  getAllPlayers(state).filter(player => player.active)
-
-export const getInactivePlayers = state =>
-  getAllPlayers(state).filter(player => !player.active)

@@ -1,5 +1,5 @@
 import * as api from '../api'
-import * as types from '../constants/ActionTypes'
+import * as types from 'core/constants/actionTypes'
 import { createAsyncAction } from './helper'
 
 export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)

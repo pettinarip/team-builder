@@ -1,6 +1,6 @@
 import {
   RESET_POSITIONS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, CLEAN_PLAYER_POSITION
-} from '../constants/ActionTypes'
+} from '../constants/actionTypes'
 
 export default (state = {}, action) => {
   switch (action.type) {

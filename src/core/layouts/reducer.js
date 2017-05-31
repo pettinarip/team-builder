@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { FETCH_LAYOUTS_SUCCESS, SELECT_LAYOUT } from '../constants/ActionTypes'
+import { FETCH_LAYOUTS_SUCCESS, SELECT_LAYOUT } from '../constants/actionTypes'
 
 const selectedId = (state = -1, action) => {
   switch (action.type) {
@@ -39,12 +39,3 @@ export default combineReducers({
   byId,
   ids
 })
-
-export const getLayout = (state, id) =>
-  state.byId[id]
-
-export const getAllLayouts = state =>
-  state.ids.map(id => getLayout(state, id))
-
-export const getActiveLayout = state =>
-  state.byId[state.selectedId]

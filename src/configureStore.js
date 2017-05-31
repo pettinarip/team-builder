@@ -1,7 +1,7 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
 import createSagaMiddleware from 'redux-saga'
-import rootReducer from './reducers'
+import reducers from 'core/reducers'
 import sagas from 'core/sagas'
 
 const isProduction = process.env.NODE_ENV === 'production'
@@ -17,7 +17,7 @@ const configureStore = () => {
 
   if (isProduction) {
     store = createStore(
-      rootReducer,
+      reducers,
       middleware
     )
   } else {
@@ -34,7 +34,7 @@ const configureStore = () => {
     }
 
     store = createStore(
-      rootReducer,
+      reducers,
       enhancer
     )
   }

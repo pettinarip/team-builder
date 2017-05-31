@@ -1,5 +1,6 @@
-import reducer, * as players from '../players'
-import * as types from '../../constants/ActionTypes'
+import reducer from '../reducer'
+import * as players from '../selectors'
+import * as types from '../../constants/actionTypes'
 
 describe('players reducer', () => {
   it('should handle initial state', () => {
@@ -156,7 +157,7 @@ describe('players reducer', () => {
 
     it('should change all players active mode to inactive', () => {
       expect(
-        players.getAllPlayers(state).map(player => player.active)
+        players.getPlayersList(state).map(player => player.active)
       ).toEqual(
         [false, false, false]
       )
