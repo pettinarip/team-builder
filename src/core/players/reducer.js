@@ -11,6 +11,13 @@ const byId = (state = {}, action) => {
         ...state,
         [action.player.id]: action.player
       }
+    case playersTypes.LOAD_PLAYERS_SUCCESS:
+      return action.players.reduce((list, player) => {
+        return {
+          ...list,
+          [player.id]: player
+        }
+      }, {})
     case ADD_PLAYER_POSITION:
       return {
         ...state,
@@ -37,6 +44,8 @@ const ids = (state = [], action) => {
   switch (action.type) {
     case playersTypes.ADD_PLAYER_SUCCESS:
       return [...state, action.player.id]
+    case playersTypes.LOAD_PLAYERS_SUCCESS:
+      return action.players.map(player => player.id)
     default:
       return state
   }

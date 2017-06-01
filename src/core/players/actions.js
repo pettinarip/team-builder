@@ -18,5 +18,10 @@ export const playersActions = {
   addPlayerFailure: error => ({
     type: playersTypes.ADD_PLAYER_FAILURE,
     error
+  }),
+
+  loadPlayersSuccess: players => ({
+    type: playersTypes.LOAD_PLAYERS_SUCCESS,
+    players
   })
 }
