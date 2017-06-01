@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import * as actions from 'core/auth/actions'
+import { authActions } from 'core/auth'
 
 const SignIn = ({ signInWithGithub, signInWithGoogle }) => (
   <section className='sign-in container'>
@@ -22,5 +22,5 @@ SignIn.propTypes = {
 
 export default connect(
   null,
-  actions
+  authActions
 )(SignIn)

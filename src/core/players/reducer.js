@@ -1,14 +1,15 @@
 import { combineReducers } from 'redux'
+import { playersTypes } from './actionTypes'
 import {
-  ADD_PLAYER_SUCCESS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS
+  ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, RESET_POSITIONS
 } from '../constants/actionTypes'
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case ADD_PLAYER_SUCCESS:
+    case playersTypes.ADD_PLAYER_SUCCESS:
       return {
         ...state,
-        [action.response.id]: action.response
+        [action.player.id]: action.player
       }
     case ADD_PLAYER_POSITION:
       return {
@@ -34,14 +35,14 @@ const byId = (state = {}, action) => {
 
 const ids = (state = [], action) => {
   switch (action.type) {
-    case ADD_PLAYER_SUCCESS:
-      return [...state, action.response.id]
+    case playersTypes.ADD_PLAYER_SUCCESS:
+      return [...state, action.player.id]
     default:
       return state
   }
 }
 
-export default combineReducers({
+export const playersReducer = combineReducers({
   byId,
   ids
 })

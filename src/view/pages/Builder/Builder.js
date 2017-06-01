@@ -1,15 +1,12 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import * as actions from 'core/auth/actions'
-
 import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
-
+import { authActions } from 'core/auth'
 import FieldContainer from 'view/containers/FieldContainer'
 import LayoutSelectorContainer from 'view/containers/LayoutSelectorContainer'
 import PlayerContainer from 'view/containers/PlayerContainer'
-
 import SportSelector from 'view/components/SportSelector'
 
 let Builder = ({ signOut }) => (
@@ -33,5 +30,5 @@ Builder = DragDropContext(HTML5Backend)(Builder)
 
 export default connect(
   null,
-  actions
+  authActions
 )(Builder)

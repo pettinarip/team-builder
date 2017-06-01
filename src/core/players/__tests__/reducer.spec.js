@@ -1,6 +1,6 @@
 import reducer from '../reducer'
 import * as players from '../selectors'
-import * as types from '../../constants/actionTypes'
+import { playersTypes } from '../../constants/actionTypes'
 
 describe('players reducer', () => {
   it('should handle initial state', () => {
@@ -17,7 +17,7 @@ describe('players reducer', () => {
         byId: {},
         ids: []
       }, {
-        type: types.ADD_PLAYER_SUCCESS,
+        type: playersTypes.ADD_PLAYER_SUCCESS,
         response: {
           id: 1,
           name: 'Player',
@@ -70,7 +70,7 @@ describe('players reducer', () => {
         },
         ids: [1, 2]
       }, {
-        type: types.ADD_PLAYER_POSITION,
+        type: playersTypes.ADD_PLAYER_POSITION,
         id: 1
       })
     })
@@ -107,7 +107,7 @@ describe('players reducer', () => {
         },
         ids: [1, 2]
       }, {
-        type: types.REMOVE_PLAYER_POSITION,
+        type: playersTypes.REMOVE_PLAYER_POSITION,
         id: 1
       })
     })
@@ -151,7 +151,7 @@ describe('players reducer', () => {
         },
         ids: [1, 2, 3]
       }, {
-        type: types.RESET_POSITIONS
+        type: playersTypes.RESET_POSITIONS
       })
     })
 

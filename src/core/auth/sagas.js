@@ -1,6 +1,6 @@
-import { fork, take, call, put } from 'redux-saga/effects'
-import * as actions from './actions'
-import * as types from './actionTypes'
+import { fork, take, call, put, all } from 'redux-saga/effects'
+import { authActions } from './actions'
+import { authTypes } from './actionTypes'
 import { firebaseAuth } from 'core/firebase'
 import history from 'view/history'
 
@@ -10,38 +10,38 @@ function * signIn (authProvider) {
       [firebaseAuth, 'signInWithPopup'],
       authProvider
     )
-    yield put(actions.signInSuccess(authData.user))
+    yield put(authActions.signInSuccess(authData.user))
     yield call(history.push, '/')
   } catch (error) {
-    yield put(actions.signInFailure(error))
+    yield put(authActions.signInFailure(error))
   }
 }
 
 function * signOut () {
   try {
     yield call([firebaseAuth, 'signOut'])
-    yield put(actions.signOutSuccess())
+    yield put(authActions.signOutSuccess())
     yield call(history.replace, '/sign-in')
   } catch (error) {
-    yield put(actions.signOutFailure(error))
+    yield put(authActions.signOutFailure(error))
   }
 }
 
 function * watchSignIn () {
   while (true) {
-    let { payload } = yield take(types.SIGN_IN)
+    let { payload } = yield take(authTypes.SIGN_IN)
     yield fork(signIn, payload.authProvider)
   }
 }
 
 function * watchSignOut () {
   while (true) {
-    yield take(types.SIGN_OUT)
+    yield take(authTypes.SIGN_OUT)
     yield fork(signOut)
   }
 }
 
-export const authSagas = [
+export const authSagas = all([
   fork(watchSignIn),
   fork(watchSignOut)
-]
+])

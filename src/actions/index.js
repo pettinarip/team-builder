@@ -4,8 +4,6 @@ import { createAsyncAction } from './helper'
 
 export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)
 
-export const addPlayer = createAsyncAction('ADD_PLAYER', api.addPlayer)
-
 export const showAddPlayerModal = modalType => ({
   type: types.SHOW_MODAL,
   modalType: 'NEW_PLAYER',

@@ -1,7 +1,8 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
-import * as actions from 'actions'
+import { playersActions } from 'core/players'
+import { hideModal } from 'actions'
 
 import NewPlayerModal from 'view/components/NewPlayerModal'
 
@@ -17,7 +18,12 @@ NewPlayerModalContainer.propTypes = {
   hideModal: PropTypes.func.isRequired
 }
 
+const mapDispatchToProps = {
+  addPlayer: playersActions.addPlayer,
+  hideModal: hideModal
+}
+
 export default connect(
   (state, ownProps) => ownProps,
-  actions
+  mapDispatchToProps
 )(NewPlayerModalContainer)

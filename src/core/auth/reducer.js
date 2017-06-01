@@ -1,4 +1,4 @@
-import * as types from './actionTypes'
+import { authTypes } from './actionTypes'
 
 const initialState = {
   authenticated: false,
@@ -6,15 +6,15 @@ const initialState = {
   user: null
 }
 
-const authReducer = (state = initialState, action) => {
+export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case types.SIGN_IN_SUCCESS:
+    case authTypes.SIGN_IN_SUCCESS:
       return {
         authenticated: true,
         uid: action.payload.user.uid,
         user: action.payload.user.toJSON()
       }
-    case types.SIGN_OUT_SUCCESS:
+    case authTypes.SIGN_OUT_SUCCESS:
       return {
         authenticated: false,
         uid: null,
@@ -24,5 +24,3 @@ const authReducer = (state = initialState, action) => {
       return state
   }
 }
-
-export default authReducer

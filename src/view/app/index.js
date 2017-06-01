@@ -1,8 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { isAuthenticated } from 'core/auth'
-import * as authActions from 'core/auth/actions'
+import { isAuthenticated, authActions } from 'core/auth'
 
 import Header from 'view/components/Header'
 import Footer from 'view/components/Footer'

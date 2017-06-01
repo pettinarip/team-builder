@@ -1,2 +1,5 @@
-export { default as playersReducer } from './reducer'
+export { playersTypes } from './actionTypes'
+export { playersReducer } from './reducer'
+export { playersActions } from './actions'
+export { playersSagas } from './sagas'
 export { getPlayersById, getPlayersList, getActivePlayers, getInactivePlayers } from './selectors'
