@@ -3,7 +3,7 @@ import { playersActions } from './actions'
 
 export default new FirebaseList({
   onAdd: playersActions.addPlayerSuccess,
-  onChange: () => ({type: 'NOOP'}),
+  onChange: playersActions.updatePlayerSuccess,
   onLoad: playersActions.loadPlayersSuccess,
-  onRemove: () => ({type: 'NOOP'})
+  onRemove: playersActions.removePlayerSuccess
 })

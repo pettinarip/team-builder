@@ -20,6 +20,16 @@ export const playersActions = {
     error
   }),
 
+  updatePlayerSuccess: player => ({
+    type: playersTypes.UPDATE_PLAYER_SUCCESS,
+    player
+  }),
+
+  removePlayerSuccess: player => ({
+    type: playersTypes.REMOVE_PLAYER_SUCCESS,
+    player
+  }),
+
   loadPlayersSuccess: players => ({
     type: playersTypes.LOAD_PLAYERS_SUCCESS,
     players
