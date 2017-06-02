@@ -1,11 +1,11 @@
-import reducer from '../reducer'
+import { layoutsReducer } from '../reducer'
+import { layoutsTypes } from '../actionTypes'
 import * as layouts from '../selectors'
-import * as types from '../../constants/actionTypes'
 
 describe('layouts reducer', () => {
   it('should handle initial state', () => {
     expect(
-      reducer(undefined, {})
+      layoutsReducer(undefined, {})
     ).toEqual({
       selectedId: -1,
       byId: {},
@@ -17,12 +17,12 @@ describe('layouts reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = layoutsReducer({
         selectedId: -1,
         byId: {},
         ids: []
       }, {
-        type: types.FETCH_LAYOUTS_SUCCESS,
+        type: layoutsTypes.FETCH_LAYOUTS_SUCCESS,
         response: [{
           id: 1,
           config: [4, 4, 2]
@@ -65,7 +65,7 @@ describe('layouts reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = layoutsReducer({
         selectedId: -1,
         byId: {
           1: {
@@ -75,7 +75,7 @@ describe('layouts reducer', () => {
         },
         ids: [1]
       }, {
-        type: types.SELECT_LAYOUT,
+        type: layoutsTypes.SELECT_LAYOUT,
         id: 1
       })
     })

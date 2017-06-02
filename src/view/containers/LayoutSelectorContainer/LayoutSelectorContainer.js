@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import * as actions from 'actions'
+import { layoutsActions } from 'core/layouts'
 import { getLayoutsList, getActiveLayout } from 'core/selectors'
 
 import SettingField from 'view/components/SettingField'
@@ -46,5 +46,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  actions
+  layoutsActions
 )(LayoutSelectorContainer)
