@@ -1,0 +1,63 @@
+.main {
+  @include grid-container;
+
+  @include grid-media($main-grid--large){
+    width: 1050px;
+    margin: 0 auto;
+  }
+
+  .main__settings, .main__field {
+    @include grid-column(12);
+
+    @include grid-media($main-grid--tablet-mid){
+      @include grid-column(6);
+    }
+  }
+}
+
+.settings-field-wrapper {
+  position: relative;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #EEE;
+
+  &.label-pad {
+    padding-top: 30px;
+  }
+
+  .settings-field-heading {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 20px 20px 0 20px;
+
+    font-size: 12px;
+    color: #999;
+  }
+
+  .settings-field {
+    position: relative;
+    padding: 20px;
+    padding-bottom: 0;
+
+    input {
+      border: 1px solid #ccc;
+      padding: 5px;
+    }
+
+    button {
+      padding: 5px 8px;
+      border: 0;
+      color: #FFF;
+      outline: none;
+      cursor: pointer;
+
+      &.primary-button:disabled {
+        background-color: $secondary-color;
+      }
+
+      &.primary-button {
+        background-color: $primary-color;
+      }
+    }
+  }
+}

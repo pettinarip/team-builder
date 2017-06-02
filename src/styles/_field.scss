@@ -1,0 +1,40 @@
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  background-color: #999;
+}
+
+.field {
+  width: 343px;
+  height: 500px;
+  background-image: url('../assets/field-bg.jpg');
+
+  display: flex;
+  flex-flow: column nowrap;
+
+  .layout {
+    flex: 1;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    margin: 35px 0 50px 0;
+
+    .line {
+      padding: 0 25px;
+
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: space-around;
+
+      .player {
+        width: 28px;
+        height: 28px;
+
+        box-shadow: 1px 1px 2px #000;
+      }
+    }
+  }
+}

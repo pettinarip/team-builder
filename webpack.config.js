@@ -2,6 +2,8 @@ const webpack = require('webpack')
 const path = require('path')
 const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
 const HtmlWebpackPlugin = require('html-webpack-plugin')
+const CopyWebpackPlugin = require('copy-webpack-plugin')
+const neat = require('bourbon-neat').includePaths
 
 const nodeEnv = process.env.NODE_ENV || 'development'
 const isProduction = nodeEnv === 'production'
@@ -14,7 +16,11 @@ const commonPlugins = [
   }),
   new HtmlWebpackPlugin({
     template: 'index.html'
-  })
+  }),
+  new CopyWebpackPlugin([{
+    from: 'src/assets',
+    to: './assets'
+  }])
 ]
 
 const prodPlugins = [
@@ -33,10 +39,17 @@ const prodPlugins = [
 
 module.exports = {
   devtool: isProduction ? false : 'source-map',
-  entry: './src/index.js',
+  entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name]-[hash].js'
+  },
+  resolve: {
+    extensions: ['.js', '.json'],
+    modules: [
+      path.resolve('./src'),
+      'node_modules'
+    ]
   },
   plugins: isProduction ? commonPlugins.concat(prodPlugins) : commonPlugins,
   module: {
@@ -55,9 +68,18 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
+          {
+            loader: 'style-loader'
+          },
+          {
+            loader: 'css-loader'
+          },
+          {
+            loader: 'sass-loader',
+            options: {
+              includePaths: neat
+            }
+          }
         ]
       },
       {
@@ -69,5 +91,9 @@ module.exports = {
       { test: /\.[ot]tf$/, use: 'url-loader?limit=65000&mimetype=application/octet-stream&name=assets/fonts/[name].[ext]' },
       { test: /\.eot$/, use: 'url-loader?limit=65000&mimetype=application/vnd.ms-fontobject&name=assets/fonts/[name].[ext]' }
     ]
+  },
+  devServer: {
+    port: 3000,
+    historyApiFallback: true
   }
 }

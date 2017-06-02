@@ -1,4 +1,16 @@
 {
-  "presets": ["react", "es2015"],
-  "plugins": ["transform-object-rest-spread", "babel-plugin-transform-object-entries"]
+  "presets": [
+    ["es2015", { "modules": false }],
+    "react",
+    "stage-0"
+  ],
+  "plugins": [
+    "transform-object-rest-spread",
+    "babel-plugin-transform-object-entries"
+  ],
+  "env": {
+    "test": {
+      "plugins": ["transform-es2015-modules-commonjs"]
+    }
+  }
 }

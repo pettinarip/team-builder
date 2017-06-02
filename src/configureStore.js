@@ -1,20 +1,26 @@
 import { createStore, applyMiddleware, compose } from 'redux'
 import thunk from 'redux-thunk'
-import rootReducer from './reducers'
+import createSagaMiddleware from 'redux-saga'
+import reducers from 'core/reducers'
+import sagas from 'core/sagas'
 
 const isProduction = process.env.NODE_ENV === 'production'
 
 const configureStore = () => {
   let store = null
-  if (isProduction) {
-    const middleware = applyMiddleware(thunk)
 
+  const sagaMiddleware = createSagaMiddleware()
+  const middleware = applyMiddleware(
+    thunk,
+    sagaMiddleware
+  )
+
+  if (isProduction) {
     store = createStore(
-      rootReducer,
+      reducers,
       middleware
     )
   } else {
-    const middleware = applyMiddleware(thunk)
     let enhancer
 
     // Enable DevTools if browser extension is installed
@@ -28,10 +34,11 @@ const configureStore = () => {
     }
 
     store = createStore(
-      rootReducer,
+      reducers,
       enhancer
     )
   }
+  sagaMiddleware.run(sagas)
 
   return store
 }
