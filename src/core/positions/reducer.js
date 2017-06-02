@@ -1,18 +1,16 @@
-import {
-  RESET_POSITIONS, ADD_PLAYER_POSITION, REMOVE_PLAYER_POSITION, CLEAN_PLAYER_POSITION
-} from '../constants/actionTypes'
+import { positionsTypes } from './actionTypes'
 
-export default (state = {}, action) => {
+export const positionsReducer = (state = {}, action) => {
   switch (action.type) {
-    case RESET_POSITIONS:
+    case positionsTypes.RESET_POSITIONS:
       return {}
-    case ADD_PLAYER_POSITION:
+    case positionsTypes.ADD_PLAYER_POSITION:
       return {
         ...state,
         [action.position]: action.id
       }
-    case REMOVE_PLAYER_POSITION:
-    case CLEAN_PLAYER_POSITION:
+    case positionsTypes.REMOVE_PLAYER_POSITION:
+    case positionsTypes.CLEAN_PLAYER_POSITION:
       return {
         ...state,
         [action.position]: null

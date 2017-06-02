@@ -1,24 +1,15 @@
+import { createAsyncAction } from './helper'
 import * as api from '../api'
 import * as types from 'core/constants/actionTypes'
-import { createAsyncAction } from './helper'
+import { positionsTypes } from 'core/positions'
 
 export const fetchLayouts = createAsyncAction('FETCH_LAYOUTS', api.fetchLayouts)
-
-export const showAddPlayerModal = modalType => ({
-  type: types.SHOW_MODAL,
-  modalType: 'NEW_PLAYER',
-  modalProps: {}
-})
-
-export const hideModal = () => ({
-  type: types.HIDE_MODAL
-})
 
 export const changeLayoutSelection = id => (dispatch, getState) => {
   const layouts = getState().layouts
   if (layouts.selectedId !== id) {
     dispatch({
-      type: types.RESET_POSITIONS,
+      type: positionsTypes.RESET_POSITIONS,
       playersCount: layouts.byId[id].config.reduce((acum, x) => acum + x, 0)
     })
     dispatch({
@@ -26,29 +17,4 @@ export const changeLayoutSelection = id => (dispatch, getState) => {
       id
     })
   }
-}
-
-export const removePlayerPosition = (id, position) => ({
-  type: types.REMOVE_PLAYER_POSITION,
-  id,
-  position
-})
-
-export const cleanPlayerPosition = position => ({
-  type: types.CLEAN_PLAYER_POSITION,
-  position
-})
-
-export const addPlayerPosition = (source, target) => dispatch => {
-  if (target.id && target.position) {
-    dispatch(removePlayerPosition(target.id, target.position))
-  }
-  if (source.position) {
-    dispatch(cleanPlayerPosition(source.position))
-  }
-  dispatch({
-    type: types.ADD_PLAYER_POSITION,
-    id: source.id,
-    position: target.position
-  })
 }

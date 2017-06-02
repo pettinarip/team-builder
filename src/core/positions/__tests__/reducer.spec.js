@@ -1,10 +1,10 @@
-import reducer from '../reducer'
-import * as types from '../../constants/actionTypes'
+import { positionsReducer } from '../reducer'
+import { positionsTypes } from '../actionTypes'
 
 describe('positions reducer', () => {
   it('should handle initial state', () => {
     expect(
-      reducer(undefined, {})
+      positionsReducer(undefined, {})
     ).toEqual({})
   })
 
@@ -12,11 +12,11 @@ describe('positions reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = positionsReducer({
         1: 3,
         3: null
       }, {
-        type: types.ADD_PLAYER_POSITION,
+        type: positionsTypes.ADD_PLAYER_POSITION,
         id: 1,
         position: 2
       })
@@ -36,12 +36,12 @@ describe('positions reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = positionsReducer({
         1: 3,
         2: 1,
         3: null
       }, {
-        type: types.REMOVE_PLAYER_POSITION,
+        type: positionsTypes.REMOVE_PLAYER_POSITION,
         position: 2
       })
     })
@@ -60,12 +60,12 @@ describe('positions reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = positionsReducer({
         1: 3,
         2: 1,
         3: null
       }, {
-        type: types.CLEAN_PLAYER_POSITION,
+        type: positionsTypes.CLEAN_PLAYER_POSITION,
         position: 2
       })
     })
@@ -84,12 +84,12 @@ describe('positions reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = positionsReducer({
         1: 3,
         2: 1,
         3: null
       }, {
-        type: types.RESET_POSITIONS
+        type: positionsTypes.RESET_POSITIONS
       })
     })
 

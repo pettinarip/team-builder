@@ -1,1 +1,3 @@
-export { default as modalsReducer } from './reducer'
+export { modalsReducer } from './reducer'
+export { modalsTypes } from './actionTypes'
+export { modalsActions } from './actions'

@@ -1,11 +1,12 @@
-import reducer from '../reducer'
+import { playersReducer } from '../reducer'
 import * as players from '../selectors'
-import { playersTypes } from '../../constants/actionTypes'
+import { playersTypes } from '../actionTypes'
+import { positionsTypes } from 'core/positions'
 
 describe('players reducer', () => {
   it('should handle initial state', () => {
     expect(
-      reducer(undefined, {})
+      playersReducer(undefined, {})
     ).toEqual({ byId: {}, ids: [] })
   })
 
@@ -13,16 +14,15 @@ describe('players reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = playersReducer({
         byId: {},
         ids: []
       }, {
         type: playersTypes.ADD_PLAYER_SUCCESS,
-        response: {
+        player: {
           id: 1,
           name: 'Player',
           number: 1,
-          icon: '',
           active: false
         }
       })
@@ -33,7 +33,6 @@ describe('players reducer', () => {
         id: 1,
         name: 'Player',
         number: 1,
-        icon: '',
         active: false
       })
     })
@@ -51,26 +50,24 @@ describe('players reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = playersReducer({
         byId: {
           1: {
             id: 1,
             name: 'Player',
             number: 1,
-            icon: '',
             active: false
           },
           2: {
             id: 2,
             name: 'Player',
             number: 2,
-            icon: '',
             active: false
           }
         },
         ids: [1, 2]
       }, {
-        type: playersTypes.ADD_PLAYER_POSITION,
+        type: positionsTypes.ADD_PLAYER_POSITION,
         id: 1
       })
     })
@@ -88,26 +85,24 @@ describe('players reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = playersReducer({
         byId: {
           1: {
             id: 1,
             name: 'Player',
             number: 1,
-            icon: '',
             active: true
           },
           2: {
             id: 2,
             name: 'Player',
             number: 2,
-            icon: '',
             active: true
           }
         },
         ids: [1, 2]
       }, {
-        type: playersTypes.REMOVE_PLAYER_POSITION,
+        type: positionsTypes.REMOVE_PLAYER_POSITION,
         id: 1
       })
     })
@@ -125,33 +120,30 @@ describe('players reducer', () => {
     let state
 
     beforeEach(() => {
-      state = reducer({
+      state = playersReducer({
         byId: {
           1: {
             id: 1,
             name: 'Player',
             number: 1,
-            icon: '',
             active: true
           },
           2: {
             id: 2,
             name: 'Player',
             number: 2,
-            icon: '',
             active: true
           },
           3: {
             id: 3,
             name: 'Player',
             number: 3,
-            icon: '',
             active: false
           }
         },
         ids: [1, 2, 3]
       }, {
-        type: playersTypes.RESET_POSITIONS
+        type: positionsTypes.RESET_POSITIONS
       })
     })
 

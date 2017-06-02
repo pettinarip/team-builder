@@ -2,9 +2,10 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { DropTarget } from 'react-dnd'
-import ItemTypes from 'core/constants/ItemTypes'
-import * as actions from 'actions'
 
+import ItemTypes from 'core/constants/ItemTypes'
+import { modalsActions } from 'core/modals'
+import { positionsActions } from 'core/positions'
 import { getInactivePlayers } from 'core/selectors'
 
 import SettingField from 'view/components/SettingField'
@@ -45,7 +46,13 @@ const mapStateToProps = (state) => ({
   players: getInactivePlayers(state)
 })
 
+const mapDispatchToProps = {
+  addPlayerPosition: positionsActions.addPlayerPosition,
+  removePlayerPosition: positionsActions.removePlayerPosition,
+  showAddPlayerModal: modalsActions.showAddPlayerModal
+}
+
 export default connect(
   mapStateToProps,
-  actions
+  mapDispatchToProps
 )(DropTarget(ItemTypes.PLAYER, {}, collect)(PlayerContainer))

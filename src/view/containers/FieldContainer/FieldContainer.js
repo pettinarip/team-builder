@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 
-import * as actions from 'actions'
+import { positionsActions } from 'core/positions'
 import { getActiveLayout, getPlayersByPosition } from 'core/selectors'
 
 import Field from 'view/components/Field'
@@ -35,5 +35,5 @@ const mapStateToProps = (state) => ({
 
 export default connect(
   mapStateToProps,
-  actions
+  positionsActions
 )(FieldContainer)
