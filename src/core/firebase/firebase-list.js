@@ -39,25 +39,30 @@ export class FirebaseList {
     let initialized = false
     let list = []
 
+    const emitAction = (action, ...args) => {
+      if (!action) return
+      emit(action(...args))
+    }
+
     ref.once('value', () => {
       initialized = true
-      emit(this._actions.onLoad(list))
+      emitAction(this._actions.onLoad, list)
     })
 
     ref.on('child_added', snapshot => {
       if (initialized) {
-        emit(this._actions.onAdd(this.unwrapSnapshot(snapshot)))
+        emitAction(this._actions.onAdd, this.unwrapSnapshot(snapshot))
       } else {
         list.push(this.unwrapSnapshot(snapshot))
       }
     })
 
     ref.on('child_changed', snapshot => {
-      emit(this._actions.onChange(this.unwrapSnapshot(snapshot)))
+      emitAction(this._actions.onChange, this.unwrapSnapshot(snapshot))
     })
 
     ref.on('child_removed', snapshot => {
-      emit(this._actions.onRemove(this.unwrapSnapshot(snapshot)))
+      emitAction(this._actions.onRemove, this.unwrapSnapshot(snapshot))
     })
 
     return () => ref.off()

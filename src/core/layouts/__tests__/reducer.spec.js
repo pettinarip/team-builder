@@ -22,8 +22,8 @@ describe('layouts reducer', () => {
         byId: {},
         ids: []
       }, {
-        type: layoutsTypes.FETCH_LAYOUTS_SUCCESS,
-        response: [{
+        type: layoutsTypes.LOAD_LAYOUTS_SUCCESS,
+        layouts: [{
           id: 1,
           config: [4, 4, 2]
         }, {

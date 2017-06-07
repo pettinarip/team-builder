@@ -12,10 +12,10 @@ const selectedId = (state = -1, action) => {
 
 const byId = (state = {}, action) => {
   switch (action.type) {
-    case layoutsTypes.FETCH_LAYOUTS_SUCCESS:
+    case layoutsTypes.LOAD_LAYOUTS_SUCCESS:
       return {
         ...state,
-        ...action.response.reduce((obj, layout) => {
+        ...action.layouts.reduce((obj, layout) => {
           obj[layout.id] = layout
           return obj
         }, {})
@@ -27,8 +27,8 @@ const byId = (state = {}, action) => {
 
 const ids = (state = [], action) => {
   switch (action.type) {
-    case layoutsTypes.FETCH_LAYOUTS_SUCCESS:
-      return action.response.map(layout => layout.id)
+    case layoutsTypes.LOAD_LAYOUTS_SUCCESS:
+      return action.layouts.map(layout => layout.id)
     default:
       return state
   }
