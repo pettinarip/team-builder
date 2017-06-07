@@ -1,3 +1,23 @@
-# Team lineup builder
+# Team builder
+Simple app to build your team lineup. Working sample [here](https://teambuilder-3513e.firebaseapp.com)
 
-Working sample in teamlineup.herokuapp.com
+## Installation
+```sh
+$ yarn
+$ yarn dev
+```
+
+## Test
+```sh
+$ yarn test
+```
+
+## Build prod
+```sh
+$ yarn run build
+```
+## TODO
+- More tests
+- Add more sports
+- Share link
+- Touch backend DnD
