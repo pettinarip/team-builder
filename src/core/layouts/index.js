@@ -1,4 +1,5 @@
 export { layoutsReducer } from './reducer'
 export { layoutsTypes } from './actionTypes'
 export { layoutsActions } from './actions'
+export { layoutsSagas } from './sagas'
 export { getLayout, getActiveLayout, getLayoutsList } from './selectors'

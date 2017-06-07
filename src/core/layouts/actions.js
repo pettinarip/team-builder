@@ -1,28 +1,11 @@
-import * as api from 'api'
 import { positionsTypes } from 'core/positions'
 import { layoutsTypes } from './actionTypes'
 
 export const layoutsActions = {
-  fetchLayouts: () => dispatch => {
-    dispatch({
-      type: layoutsTypes.FETCH_LAYOUTS_REQUEST
-    })
-
-    return api.fetchLayouts().then(
-      response => {
-        dispatch({
-          type: layoutsTypes.FETCH_LAYOUTS_SUCCESS,
-          response
-        })
-      },
-      error => {
-        dispatch({
-          type: layoutsTypes.FETCH_LAYOUTS_FAILURE,
-          errorMessage: error.message || 'Something went wrong.'
-        })
-      }
-    )
-  },
+  loadLayoutsSuccess: layouts => ({
+    type: layoutsTypes.LOAD_LAYOUTS_SUCCESS,
+    layouts
+  }),
 
   changeLayoutSelection: id => (dispatch, getState) => {
     const layouts = getState().layouts
