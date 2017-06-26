@@ -1,3 +1,3 @@
-import NewPlayerForm from './NewPlayerForm'
+import NewPlayerFormContainer from './NewPlayerFormContainer'
 
-export default NewPlayerForm
+export default NewPlayerFormContainer

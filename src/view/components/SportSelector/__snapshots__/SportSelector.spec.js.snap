@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SportSelector component should render the component properly 1`] = `
+<SettingField
+  title="Sport"
+>
+  <div
+    className="list"
+  >
+    <div
+      className="item selected"
+    >
+      <div
+        className="layout-description"
+      >
+        Football
+      </div>
+    </div>
+  </div>
+</SettingField>
+`;

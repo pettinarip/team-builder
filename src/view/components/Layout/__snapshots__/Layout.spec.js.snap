@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout component should render the component properly 1`] = `
+<div
+  className="layout"
+>
+  <div
+    className="line"
+  >
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={8}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={9}
+      removePlayer={[Function]}
+    />
+  </div>
+  <div
+    className="line"
+  >
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={4}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={5}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={6}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={7}
+      removePlayer={[Function]}
+    />
+  </div>
+  <div
+    className="line"
+  >
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={0}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={1}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={2}
+      removePlayer={[Function]}
+    />
+    <DropTarget(PlayerDroppable)
+      addPlayer={[Function]}
+      className=""
+      position={3}
+      removePlayer={[Function]}
+    />
+  </div>
+</div>
+`;

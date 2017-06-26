@@ -1,28 +1,34 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-
 import SettingField from './SettingField'
 
 describe('SettingField component', () => {
-  let component
-  let children
-  let title
-
-  beforeEach(() => {
-    children = <div />
-    title = 'title'
-    component = shallow(
-      <SettingField title={title}>
-        {children}
-      </SettingField>
-    )
+  it('should render the component properly', () => {
+    const component = mountSettingField()
+    expect(component).toMatchSnapshot()
   })
 
-  it('should render title text', () => {
-    expect(component.contains(title)).toBe(true)
+  it('should render title text and add a padding class', () => {
+    const component = mountSettingField({
+      title: 'Testing title!'
+    })
+    expect(component).toMatchSnapshot()
   })
 
   it('should render children node', () => {
-    expect(component.contains(children)).toBe(true)
+    const component = mountSettingField({
+      children: <div />
+    })
+    expect(component).toMatchSnapshot()
   })
 })
+
+function mountSettingField (props) {
+  const propsToUse = {
+    title: '',
+    children: null,
+    ...props
+  }
+
+  return shallow(<SettingField {...propsToUse} />)
+}

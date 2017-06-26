@@ -1,24 +1,18 @@
 import React from 'react'
 import { shallow } from 'enzyme'
-import renderer from 'react-test-renderer'
 import AddPlayerButton from './AddPlayerButton'
 
 describe('AddPlayerButton component', () => {
-  let addPlayer
-
-  beforeEach(() => {
-    addPlayer = jest.fn()
-  })
-
-  it('should render correctly', () => {
-    const component = renderer.create(
+  it('should render the component properly', () => {
+    const component = shallow(
       <AddPlayerButton onClick={() => null} />
     )
-    const tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+
+    expect(component).toMatchSnapshot()
   })
 
   it('should call onClick function when clicked', () => {
+    const addPlayer = jest.fn()
     const component = shallow(
       <AddPlayerButton onClick={addPlayer} />
     )
