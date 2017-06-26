@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer component should render the component properly 1`] = `
+<footer>
+  <div
+    className="footer-link"
+  >
+    <small>
+      by
+    </small>
+     
+    <a
+      href="https://github.com/pettinarip"
+      target="_blank"
+    >
+      @pettinarip
+    </a>
+  </div>
+</footer>
+`;

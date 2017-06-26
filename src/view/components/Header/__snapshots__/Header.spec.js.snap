@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header component should render the component properly 1`] = `
+<header>
+  <h1
+    className="super-title"
+  >
+    Team Builder
+  </h1>
+  <p>
+    Build your team and shear it with your teammates!
+  </p>
+  <div />
+</header>
+`;
+
+exports[`Header component should render the sign out button if it is authenticated 1`] = `
+<header>
+  <h1
+    className="super-title"
+  >
+    Team Builder
+  </h1>
+  <p>
+    Build your team and shear it with your teammates!
+  </p>
+  <div>
+    <button
+      onClick={[Function]}
+      type="button"
+    >
+      Sign out
+    </button>
+  </div>
+</header>
+`;
