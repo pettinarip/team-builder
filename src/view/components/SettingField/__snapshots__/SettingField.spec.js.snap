@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingField component should render children node 1`] = `
+<div
+  className="settings-field-wrapper"
+>
+  <div
+    className="settings-field"
+  >
+    <div />
+  </div>
+</div>
+`;
+
+exports[`SettingField component should render the component properly 1`] = `
+<div
+  className="settings-field-wrapper"
+>
+  <div
+    className="settings-field"
+  />
+</div>
+`;
+
+exports[`SettingField component should render title text and add a padding class 1`] = `
+<div
+  className="settings-field-wrapper label-pad"
+>
+  <label
+    className="settings-field-heading"
+  >
+    Testing title!
+  </label>
+  <div
+    className="settings-field"
+  />
+</div>
+`;

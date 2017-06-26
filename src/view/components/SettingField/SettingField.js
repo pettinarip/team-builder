@@ -12,7 +12,7 @@ const SettingField = ({ title, children }) => (
 
 SettingField.propTypes = {
   title: PropTypes.string,
-  children: PropTypes.node.isRequired
+  children: PropTypes.node
 }
 
 export default SettingField

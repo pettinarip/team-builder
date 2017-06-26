@@ -3,37 +3,32 @@ import { shallow } from 'enzyme'
 import Field from './Field'
 
 describe('Field component', () => {
-  let addPlayer
-  let removePlayer
+  it('should render the component properly', () => {
+    const component = mountField({
+      layout: {id: 1, config: [4, 4, 2]},
+      playersPositions: {1: 1}
+    })
 
-  beforeEach(() => {
-    addPlayer = jest.fn()
-    removePlayer = jest.fn()
-  })
-
-  it('should render layout component', () => {
-    const component = shallow(
-      <Field
-        layout={{id: 1, config: [4, 4, 2]}}
-        playersPositions={{1: 1}}
-        addPlayer={addPlayer}
-        removePlayer={removePlayer}
-      />
-    )
-
-    expect(component.find('Layout').length).toEqual(1)
+    expect(component).toMatchSnapshot()
   })
 
   it('should not render layout component if no layout is passed', () => {
-    const component = shallow(
-      <Field
-        layout={undefined}
-        playersPositions={{1: 1}}
-        addPlayer={addPlayer}
-        removePlayer={removePlayer}
-      />
-    )
+    const component = mountField({
+      playersPositions: {1: 1}
+    })
 
-    expect(component.find('Layout').length).toEqual(0)
+    expect(component).toMatchSnapshot()
   })
 })
+
+function mountField (props = {}) {
+  const propsToUse = {
+    addPlayer () {},
+    removePlayer () {},
+    layout: undefined,
+    playersPositions: {},
+    ...props
+  }
+
+  return shallow(<Field {...propsToUse} />)
+}

@@ -46,6 +46,7 @@
     "copy-webpack-plugin": "^4.0.1",
     "css-loader": "^0.28.1",
     "enzyme": "^2.8.2",
+    "enzyme-to-json": "^1.5.1",
     "eslint": "^3.19.0",
     "eslint-config-standard": "^10.2.1",
     "eslint-config-standard-react": "^5.0.0",
@@ -61,7 +62,7 @@
     "json-loader": "^0.5.4",
     "node-sass": "^4.5.2",
     "prop-types": "^15.5.8",
-    "react-test-renderer": "^15.5.4",
+    "react-test-renderer": "^15.6.1",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.17.0",
     "url-loader": "^0.5.8",
@@ -72,6 +73,9 @@
   "jest": {
     "modulePaths": [
       "src"
+    ],
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
     ]
   }
 }

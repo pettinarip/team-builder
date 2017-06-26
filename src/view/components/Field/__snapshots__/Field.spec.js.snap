@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Field component should not render layout component if no layout is passed 1`] = `
+<div
+  className="field"
+/>
+`;
+
+exports[`Field component should render the component properly 1`] = `
+<div
+  className="field"
+>
+  <Layout
+    addPlayer={[Function]}
+    config={
+      Array [
+        4,
+        4,
+        2,
+      ]
+    }
+    playersPositions={
+      Object {
+        "1": 1,
+      }
+    }
+    removePlayer={[Function]}
+  />
+</div>
+`;

@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlayerSelector component should render all players 1`] = `
+<div
+  className="list"
+>
+  <AddPlayerButton
+    onClick={[Function]}
+  />
+  <DragSource(PlayerDraggable)
+    className="item active"
+    id={1}
+    onDropped={[Function]}
+    onDroppedOutside={[Function]}
+  />
+  <DragSource(PlayerDraggable)
+    className="item active"
+    id={2}
+    onDropped={[Function]}
+    onDroppedOutside={[Function]}
+  />
+  <DragSource(PlayerDraggable)
+    className="item active"
+    id={3}
+    onDropped={[Function]}
+    onDroppedOutside={[Function]}
+  />
+</div>
+`;
+
+exports[`PlayerSelector component should render an add player button 1`] = `
+<div
+  className="list"
+>
+  <AddPlayerButton
+    onClick={[Function]}
+  />
+</div>
+`;

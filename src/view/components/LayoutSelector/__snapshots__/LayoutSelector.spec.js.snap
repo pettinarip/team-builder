@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LayoutSelector component should render the component properly 1`] = `
+<div
+  className="layout-selector list-container"
+>
+  <div
+    className="list"
+  >
+    <div
+      className="item"
+    >
+      <div
+        className="layout-description"
+        onClick={[Function]}
+      >
+        4-4-2
+      </div>
+    </div>
+    <div
+      className="item"
+    >
+      <div
+        className="layout-description"
+        onClick={[Function]}
+      >
+        3-5-2
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`LayoutSelector component should set selected class when a selected layout is passed 1`] = `
+<div
+  className="layout-selector list-container"
+>
+  <div
+    className="list"
+  >
+    <div
+      className="item selected"
+    >
+      <div
+        className="layout-description"
+        onClick={[Function]}
+      >
+        4-4-2
+      </div>
+    </div>
+    <div
+      className="item"
+    >
+      <div
+        className="layout-description"
+        onClick={[Function]}
+      >
+        4-4-2
+      </div>
+    </div>
+  </div>
+</div>
+`;
