@@ -7,7 +7,7 @@ const AccountInfo = ({ user, authenticated, signOut }) => (
     <div className='account__options'>
       {
         authenticated &&
-        <a href='#' className='button' onClick={signOut}>Sign out</a>
+        <a href='#' className='account__options__signout button' onClick={signOut}>Sign out</a>
       }
     </div>
   </section>

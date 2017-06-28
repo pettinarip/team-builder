@@ -1,11 +1,14 @@
 .account {
-  float: right;
 
   .account__name, .account__options {
     display: inline-block;
   }
 
   .account__name {
-    margin: 0 10px;
+    line-height: 33px;
+  }
+
+  .account__options {
+    float: right;
   }
 }
