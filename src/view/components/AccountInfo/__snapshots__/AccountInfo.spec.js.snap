@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccountInfo component should render the component properly 1`] = `
+<section
+  className="account"
+>
+  <div
+    className="account__name"
+  >
+    Hello, 
+    mysterious user
+  </div>
+  <div
+    className="account__options"
+  />
+</section>
+`;
+
+exports[`AccountInfo component should render the sign out button if it is authenticated 1`] = `
+<section
+  className="account"
+>
+  <div
+    className="account__name"
+  >
+    Hello, 
+    mysterious user
+  </div>
+  <div
+    className="account__options"
+  >
+    <a
+      className="account__options__signout button"
+      href="#"
+      onClick={[Function]}
+    >
+      Sign out
+    </a>
+  </div>
+</section>
+`;
+
+exports[`AccountInfo component should show the user name 1`] = `
+<section
+  className="account"
+>
+  <div
+    className="account__name"
+  >
+    Hello, 
+    Foo
+  </div>
+  <div
+    className="account__options"
+  />
+</section>
+`;

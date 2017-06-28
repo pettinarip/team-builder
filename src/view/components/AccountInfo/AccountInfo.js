@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const AccountInfo = ({ user, authenticated, signOut }) => (
   <section className='account'>
-    <div className='account__name'>Hello, {user.displayName}</div>
+    <div className='account__name'>Hello, {user ? user.displayName : 'mysterious user'}</div>
     <div className='account__options'>
       {
         authenticated &&
