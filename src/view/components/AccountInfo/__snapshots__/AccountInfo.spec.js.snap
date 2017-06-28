@@ -7,7 +7,7 @@ exports[`AccountInfo component should render the component properly 1`] = `
   <div
     className="account__name"
   >
-    Hello, 
+    Hi, 
     mysterious user
   </div>
   <div
@@ -23,7 +23,7 @@ exports[`AccountInfo component should render the sign out button if it is authen
   <div
     className="account__name"
   >
-    Hello, 
+    Hi, 
     mysterious user
   </div>
   <div
@@ -47,7 +47,7 @@ exports[`AccountInfo component should show the user name 1`] = `
   <div
     className="account__name"
   >
-    Hello, 
+    Hi, 
     Foo
   </div>
   <div

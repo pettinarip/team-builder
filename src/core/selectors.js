@@ -24,4 +24,9 @@ export const getPlayersByPosition = createSelector(
   }
 )
 
-export const getAuthUser = state => auth.getUser(state.auth)
+export const getUserName = createSelector(
+  state => auth.getUser(state.auth),
+  user => {
+    return user ? user.displayName : undefined
+  }
+)

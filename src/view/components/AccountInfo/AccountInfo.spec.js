@@ -10,9 +10,7 @@ describe('AccountInfo component', () => {
 
   it('should show the user name', () => {
     const component = mountAccountInfo({
-      user: {
-        displayName: 'Foo'
-      }
+      name: 'Foo'
     })
     expect(component).toMatchSnapshot()
   })
@@ -39,7 +37,6 @@ describe('AccountInfo component', () => {
 function mountAccountInfo (props) {
   const propsToUse = {
     signOut () {},
-    user: null,
     authenticated: false,
     ...props
   }

@@ -1,12 +1,12 @@
 import { connect } from 'react-redux'
 
 import { isAuthenticated, authActions } from 'core/auth'
-import { getAuthUser } from 'core/selectors'
+import { getUserName } from 'core/selectors'
 
 import AccountInfo from 'view/components/AccountInfo'
 
 const mapStateToProps = (state) => ({
-  user: getAuthUser(state),
+  name: getUserName(state),
   authenticated: isAuthenticated(state)
 })
 

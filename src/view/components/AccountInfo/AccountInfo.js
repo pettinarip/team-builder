@@ -1,9 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-const AccountInfo = ({ user, authenticated, signOut }) => (
+const AccountInfo = ({ name, authenticated, signOut }) => (
   <section className='account'>
-    <div className='account__name'>Hello, {user ? user.displayName : 'mysterious user'}</div>
+    <div className='account__name'>Hi, {name || 'mysterious user'}</div>
     <div className='account__options'>
       {
         authenticated &&
@@ -14,7 +14,7 @@ const AccountInfo = ({ user, authenticated, signOut }) => (
 )
 
 AccountInfo.propTypes = {
-  user: PropTypes.object,
+  name: PropTypes.string,
   authenticated: PropTypes.bool.isRequired,
   signOut: PropTypes.func.isRequired
 }
