@@ -13,10 +13,10 @@ const Root = ({ store }) => (
     <Router history={history}>
       <Route children={() => (
         <App>
-          <div>
+          <main>
             <AuthRoute exact path='/' store={store} />
             <SignInRoute path='/sign-in' store={store} />
-          </div>
+          </main>
         </App>
       )} />
     </Router>

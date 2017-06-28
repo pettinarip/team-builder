@@ -1,0 +1,14 @@
+.account {
+
+  .account__name, .account__options {
+    display: inline-block;
+  }
+
+  .account__name {
+    line-height: 33px;
+  }
+
+  .account__options {
+    float: right;
+  }
+}

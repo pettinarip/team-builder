@@ -1,22 +1,12 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 
-const Header = ({ authenticated, signOut }) => (
+const Header = () => (
   <header>
     <h1 className='super-title'>Team Builder</h1>
     <p>Build your team and shear it with your teammates!</p>
-    <div>
-      {
-        authenticated &&
-        <button type='button' onClick={signOut}>Sign out</button>
-      }
-    </div>
   </header>
 )
 
-Header.propTypes = {
-  authenticated: PropTypes.bool.isRequired,
-  signOut: PropTypes.func.isRequired
-}
+Header.propTypes = {}
 
 export default Header

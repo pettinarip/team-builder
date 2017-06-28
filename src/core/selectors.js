@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import * as positions from './positions'
 import * as players from './players'
 import * as layouts from './layouts'
+import * as auth from './auth'
 
 export const getLayoutsList = state => layouts.getLayoutsList(state.layouts)
 
@@ -20,5 +21,12 @@ export const getPlayersByPosition = createSelector(
         [position]: players[positions[position]]
       }
     }, {})
+  }
+)
+
+export const getUserName = createSelector(
+  state => auth.getUser(state.auth),
+  user => {
+    return user ? user.displayName : undefined
   }
 )

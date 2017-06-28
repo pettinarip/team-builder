@@ -7,10 +7,10 @@ const SignIn = ({ signInWithGithub, signInWithGoogle }) => (
   <section className='sign-in container'>
     <h1 className='sign-in__heading'>Sign in</h1>
     <div className='sign-in__button-wrapper'>
-      <button type='button' className='sign-in__button' onClick={signInWithGithub}>Github</button>
+      <a href='#' className='sign-in__button button' onClick={signInWithGithub}>Github</a>
     </div>
     <div className='sign-in__button-wrapper'>
-      <button type='button' className='sign-in__button' onClick={signInWithGoogle}>Google</button>
+      <a href='#' className='sign-in__button button' onClick={signInWithGoogle}>Google</a>
     </div>
   </section>
 )
