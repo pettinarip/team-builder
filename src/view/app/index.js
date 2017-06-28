@@ -1,20 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { connect } from 'react-redux'
-import { isAuthenticated, authActions } from 'core/auth'
 
 import Header from 'view/components/Header'
 import Footer from 'view/components/Footer'
 import ModalRoot from 'view/containers/ModalRoot'
 
-function App ({ authenticated, children, signOut }) {
+function App ({ children }) {
   return (
     <div>
-      <Header
-        authenticated={authenticated}
-        signOut={signOut}
-      />
-      <main>{children}</main>
+      <Header />
+      {children}
       <Footer />
       <ModalRoot />
     </div>
@@ -22,16 +17,7 @@ function App ({ authenticated, children, signOut }) {
 }
 
 App.propTypes = {
-  authenticated: PropTypes.bool.isRequired,
-  children: PropTypes.element,
-  signOut: PropTypes.func.isRequired
+  children: PropTypes.element
 }
 
-const mapStateToProps = state => ({
-  authenticated: isAuthenticated(state)
-})
-
-export default connect(
-  mapStateToProps,
-  authActions
-)(App)
+export default App

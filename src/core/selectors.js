@@ -2,6 +2,7 @@ import { createSelector } from 'reselect'
 import * as positions from './positions'
 import * as players from './players'
 import * as layouts from './layouts'
+import * as auth from './auth'
 
 export const getLayoutsList = state => layouts.getLayoutsList(state.layouts)
 
@@ -22,3 +23,5 @@ export const getPlayersByPosition = createSelector(
     }, {})
   }
 )
+
+export const getAuthUser = state => auth.getUser(state.auth)
