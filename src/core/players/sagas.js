@@ -33,7 +33,7 @@ function * watchAuthentication () {
   while (true) {
     let { payload } = yield take(authTypes.SIGN_IN_SUCCESS)
 
-    playersList.path = `player/${payload.user.uid}`
+    playersList.path = `players/${payload.user.uid}`
     const job = yield fork(read)
 
     yield take([authTypes.SIGN_OUT_SUCCESS])
