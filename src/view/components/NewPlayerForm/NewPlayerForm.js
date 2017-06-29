@@ -33,7 +33,7 @@ const NewPlayerForm = ({ handleSubmit, pristine, submitting }) => (
       />
     </SettingField>
     <SettingField>
-      <button className='primary-button save-button' type='submit' disabled={pristine || submitting}>
+      <button className='primary-button save-button button' type='submit' disabled={pristine || submitting}>
         Add to the team
       </button>
     </SettingField>

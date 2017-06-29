@@ -48,21 +48,5 @@
       border: 1px solid #ccc;
       padding: 5px;
     }
-
-    button {
-      padding: 5px 8px;
-      border: 0;
-      color: #FFF;
-      outline: none;
-      cursor: pointer;
-
-      &.primary-button:disabled {
-        background-color: $secondary-color;
-      }
-
-      &.primary-button {
-        background-color: $primary-color;
-      }
-    }
   }
 }

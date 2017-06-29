@@ -49,7 +49,7 @@ a {
   &:hover {
     color: #FFF;
     background-color: $primary-color;
-    border-color: #FFF;
+    border-color: $primary-color;
   }
 }
 
