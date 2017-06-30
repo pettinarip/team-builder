@@ -42,7 +42,8 @@ module.exports = {
   entry: ['babel-polyfill', './src/index.js'],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name]-[hash].js'
+    filename: '[name]-[hash].js',
+    publicPath: '/'
   },
   resolve: {
     extensions: ['.js', '.json'],
@@ -94,6 +95,7 @@ module.exports = {
   },
   devServer: {
     port: 3000,
-    historyApiFallback: true
+    historyApiFallback: true,
+    overlay: true
   }
 }
