@@ -1,11 +1,15 @@
 import { connect } from 'react-redux'
 
+import { shareCodeActions } from 'core/shareCode'
+import { getShareCode } from 'core/selectors'
+
 import ShareCode from 'view/components/ShareCode'
 
 const mapStateToProps = (state) => ({
-  code: `${window.location.origin}/view/Kl_1bHcvESCXFv2KRcl`
+  code: getShareCode(state)
 })
 
 export default connect(
-  mapStateToProps
+  mapStateToProps,
+  shareCodeActions
 )(ShareCode)

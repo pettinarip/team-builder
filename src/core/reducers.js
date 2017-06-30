@@ -5,6 +5,7 @@ import { playersReducer } from './players'
 import { layoutsReducer } from './layouts'
 import { positionsReducer } from './positions'
 import { modalsReducer } from './modals'
+import { shareCodeReducer } from './shareCode'
 
 export default combineReducers({
   form: formReducer,
@@ -12,5 +13,6 @@ export default combineReducers({
   players: playersReducer,
   layouts: layoutsReducer,
   positions: positionsReducer,
-  modals: modalsReducer
+  modals: modalsReducer,
+  shareCode: shareCodeReducer
 })
