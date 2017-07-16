@@ -1,42 +1,28 @@
-import { fork, take, call, put, cancel, all, select } from 'redux-saga/effects'
-import { eventChannel } from 'redux-saga'
+import { fork, take, call, put, all, select } from 'redux-saga/effects'
 import { shareCodeActions } from './actions'
 import { shareCodeTypes } from './actionTypes'
-import { authTypes } from 'core/auth'
-import { getActiveLayout, getPositions } from 'core/selectors'
-import shareCodeList from './list'
+import { getActiveLayout, getPositions, getUser } from 'core/selectors'
+import * as api from './api'
 
-function subscribe () {
-  return eventChannel(emit => shareCodeList.subscribe(emit))
-}
-
-function * read () {
-  const channel = yield call(subscribe)
-  while (true) {
-    let action = yield take(channel)
-    yield put(action)
-  }
-}
-
-function * write (context, method, onError, ...params) {
+function * generateCode (payload, token) {
   try {
-    yield call([context, method], ...params)
-  } catch (error) {
-    yield put(onError(error))
+    const code = yield call(api.generateCode, payload, token)
+    yield put(shareCodeActions.newCodeSuccess(code))
+  } catch (e) {
+    yield put(shareCodeActions.newCodeFailure(e))
   }
 }
 
-const generateCode = write.bind(null, shareCodeList, shareCodeList.push, shareCodeActions.newCodeFailure)
-
-function * watchAuthentication () {
-  while (true) {
-    yield take(authTypes.SIGN_IN_SUCCESS)
-
-    shareCodeList.path = `shareCodes`
-    const job = yield fork(read)
-
-    yield take([authTypes.SIGN_OUT_SUCCESS])
-    yield cancel(job)
+function * loadShareCode (code) {
+  try {
+    const payload = yield call(api.loadShareCode, code)
+    const players = yield call(api.getPlayersByUserId, payload.userId)
+    yield put(shareCodeActions.loadShareCodeSuccess({
+      ...payload,
+      players
+    }))
+  } catch (e) {
+    yield put(shareCodeActions.loadShareCodeFailure(e))
   }
 }
 
@@ -45,14 +31,23 @@ function * watchGenerateShareCode () {
     yield take(shareCodeTypes.NEW_SHARE_CODE)
     const layout = yield select(getActiveLayout)
     const positions = yield select(getPositions)
-    yield fork(generateCode, {
+    const user = yield select(getUser)
+    yield call(generateCode, {
       layout: layout.id,
+      userId: user.uid,
       positions
-    })
+    }, user.stsTokenManager.accessToken)
+  }
+}
+
+function * watchLoadShareCode () {
+  while (true) {
+    const { code } = yield take(shareCodeTypes.LOAD_SHARE_CODE)
+    yield call(loadShareCode, code)
   }
 }
 
 export const shareCodeSagas = all([
-  fork(watchAuthentication),
-  fork(watchGenerateShareCode)
+  fork(watchGenerateShareCode),
+  fork(watchLoadShareCode)
 ])

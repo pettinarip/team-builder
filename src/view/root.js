@@ -7,6 +7,7 @@ import history from './history'
 import App from './app'
 import AuthRoute from './containers/AuthRoute'
 import SignInRoute from './containers/SignInRoute'
+import ViewMode from './pages/ViewMode'
 
 const Root = ({ store }) => (
   <Provider store={store}>
@@ -16,6 +17,7 @@ const Root = ({ store }) => (
           <main>
             <AuthRoute exact path='/' store={store} />
             <SignInRoute path='/sign-in' store={store} />
+            <Route path='/view/:shareCode' component={ViewMode} />
           </main>
         </App>
       )} />

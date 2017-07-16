@@ -13,15 +13,17 @@ export const getInactivePlayers = state => players.getInactivePlayers(state.play
 
 export const getPositions = state => positions.getPositions(state.positions)
 
+export const getUser = state => auth.getUser(state.auth)
+
 export const getPlayersByPosition = createSelector(
   state => positions.getPositions(state.positions),
   state => players.getPlayersById(state.players),
   (positions, players) => {
     return Object.keys(positions).reduce((result, position) => {
-      if (!position) return result
+      if (!positions[position]) return result
       return {
         ...result,
-        [position]: players[positions[position]]
+        [position]: { ...players[positions[position]], id: positions[position] }
       }
     }, {})
   }

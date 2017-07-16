@@ -1,4 +1,5 @@
 import { positionsTypes } from './actionTypes'
+import { shareCodeTypes } from 'core/shareCode'
 
 export const positionsReducer = (state = {}, action) => {
   switch (action.type) {
@@ -15,6 +16,8 @@ export const positionsReducer = (state = {}, action) => {
         ...state,
         [action.position]: null
       }
+    case shareCodeTypes.LOAD_SHARE_CODE_SUCCESS:
+      return action.payload.positions
     default:
       return state
   }

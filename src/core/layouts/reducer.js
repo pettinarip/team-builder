@@ -1,10 +1,13 @@
 import { combineReducers } from 'redux'
 import { layoutsTypes } from './actionTypes'
+import { shareCodeTypes } from 'core/shareCode'
 
 const selectedId = (state = -1, action) => {
   switch (action.type) {
     case layoutsTypes.SELECT_LAYOUT:
       return action.id
+    case shareCodeTypes.LOAD_SHARE_CODE_SUCCESS:
+      return action.payload.layout
     default:
       return state
   }

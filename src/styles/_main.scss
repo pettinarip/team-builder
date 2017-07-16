@@ -16,6 +16,12 @@
     @include grid-media($main-grid--tablet-mid){
       @include grid-column(6);
     }
+
+    &.main--readonly {
+      @include grid-media($main-grid--tablet-mid){
+        @include grid-column(12);
+      }
+    }
   }
 }
 
