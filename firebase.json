@@ -46,14 +46,34 @@
     ]
   },
   "rules": {
+    "layouts": {
+      ".read": true,
+      ".write": false
+    },
+    "players": {
+      ".read": true,
+      ".write": "auth != null",
+      ".indexOn": "userId"
+    },
     "shareCodes": {
-      ".read": true
+      ".read": true,
+      ".write": "auth != null"
     }
   },
   "database": {
     "rules": {
+      "layouts": {
+        ".read": true,
+        ".write": false
+      },
+      "players": {
+        ".read": true,
+        ".write": "auth != null",
+        ".indexOn": "userId"
+      },
       "shareCodes": {
-        ".read": true
+        ".read": true,
+        ".write": "auth != null"
       }
     }
   }
