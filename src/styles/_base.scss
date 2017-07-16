@@ -49,23 +49,18 @@ a {
   &:hover {
     color: #FFF;
     background-color: $primary-color;
-    border-color: #FFF;
+    border-color: $primary-color;
   }
 }
 
 .container {
-  border-radius: 0 0 3px 3px;
   background-color: #FFF;
   overflow: hidden;
 }
 
 .toolbar {
+  background-color: #DDD;
   padding: 5px 20px;
-  border-radius: 3px 3px 0 0;
-}
-
-.container, .toolbar {
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
 }
 
 .item {

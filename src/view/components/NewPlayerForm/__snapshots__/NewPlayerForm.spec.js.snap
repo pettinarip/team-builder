@@ -32,7 +32,7 @@ exports[`NewPlayerForm component should render the component properly 1`] = `
   </SettingField>
   <SettingField>
     <button
-      className="primary-button save-button"
+      className="primary-button save-button button"
       type="submit"
     >
       Add to the team

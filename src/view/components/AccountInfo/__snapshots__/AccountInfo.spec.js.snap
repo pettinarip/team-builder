@@ -29,13 +29,13 @@ exports[`AccountInfo component should render the sign out button if it is authen
   <div
     className="account__options"
   >
-    <a
+    <button
       className="account__options__signout button"
-      href="#"
       onClick={[Function]}
+      type="button"
     >
       Sign out
-    </a>
+    </button>
   </div>
 </section>
 `;

@@ -19,5 +19,4 @@ $ yarn run build
 ## TODO
 - More tests
 - Add more sports
-- Share link
 - Touch backend DnD

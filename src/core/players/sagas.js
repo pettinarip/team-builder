@@ -3,6 +3,7 @@ import { eventChannel } from 'redux-saga'
 import { playersActions } from './actions'
 import { playersTypes } from './actionTypes'
 import { authTypes } from 'core/auth'
+import { shareCodeTypes } from 'core/shareCode'
 import playersList from './players-list'
 
 function subscribe () {
@@ -33,7 +34,8 @@ function * watchAuthentication () {
   while (true) {
     let { payload } = yield take(authTypes.SIGN_IN_SUCCESS)
 
-    playersList.path = `player/${payload.user.uid}`
+    playersList.path = `players`
+    playersList.userId = payload.user.uid
     const job = yield fork(read)
 
     yield take([authTypes.SIGN_OUT_SUCCESS])
@@ -47,6 +49,12 @@ function * watchAddPlayer () {
     yield fork(createPlayer, player)
   }
 }
+
+// function * watchLoadPlayers () {
+//   while (true) {
+//     let { userId } = yield take(shareCodeTypes.LOAD_SHARE_CODE_SUCCESS)
+//   }
+// }
 
 export const playersSagas = all([
   fork(watchAddPlayer),

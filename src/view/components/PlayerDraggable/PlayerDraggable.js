@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { DragSource } from 'react-dnd'
 
 import ItemTypes from 'core/constants/ItemTypes'
+import Player from '../Player'
 
 const playerSource = {
   beginDrag (props) {
@@ -37,10 +38,10 @@ function collect (connect, monitor) {
   }
 }
 
-const PlayerDraggable = ({ connectDragSource, ...props }) => {
+const PlayerDraggable = ({ connectDragSource, className, name, number }) => {
   return connectDragSource(
-    <div className={`player ${props.className}`} title={props.name}>
-      <div className='player-number'>{props.number}</div>
+    <div className={`player ${className}`}>
+      <Player className={className} name={name} number={number} />
     </div>
   )
 }

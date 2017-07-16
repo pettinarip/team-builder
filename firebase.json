@@ -10,16 +10,31 @@
       {
         "source": "**/*",
         "headers": [
-          {"key": "X-Content-Type-Options", "value": "nosniff"},
-          {"key": "X-Frame-Options", "value": "DENY"},
-          {"key": "X-UA-Compatible", "value": "ie=edge"},
-          {"key": "X-XSS-Protection", "value": "1; mode=block"}
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-UA-Compatible",
+            "value": "ie=edge"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
+          }
         ]
       },
       {
         "source": "**/*.@(css|html|js|map)",
         "headers": [
-          {"key": "Cache-Control", "value": "max-age=3600"}
+          {
+            "key": "Cache-Control",
+            "value": "max-age=3600"
+          }
         ]
       }
     ],
@@ -29,5 +44,17 @@
         "destination": "/index.html"
       }
     ]
+  },
+  "rules": {
+    "shareCodes": {
+      ".read": true
+    }
+  },
+  "database": {
+    "rules": {
+      "shareCodes": {
+        ".read": true
+      }
+    }
   }
 }

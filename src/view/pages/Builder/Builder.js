@@ -4,11 +4,13 @@ import { DragDropContext } from 'react-dnd'
 import HTML5Backend from 'react-dnd-html5-backend'
 
 import Toolbar from 'view/components/Toolbar'
+
 import FieldContainer from 'view/containers/FieldContainer'
 import LayoutSelectorContainer from 'view/containers/LayoutSelectorContainer'
 import PlayerContainer from 'view/containers/PlayerContainer'
 import SportSelector from 'view/components/SportSelector'
 import AccountContainer from 'view/containers/AccountContainer'
+import ShareCodeContainer from 'view/containers/ShareCodeContainer'
 
 let Builder = () => (
   <article className='main'>
@@ -25,6 +27,7 @@ let Builder = () => (
         <FieldContainer />
       </div>
     </section>
+    <ShareCodeContainer />
   </article>
 )
 

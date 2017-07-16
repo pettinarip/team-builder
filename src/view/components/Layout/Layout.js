@@ -1,8 +1,9 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import PlayerDroppable from '../PlayerDroppable'
+import Player from '../Player'
 
-const Layout = ({ config, playersPositions, addPlayer, removePlayer }) => {
+const Layout = ({ config, playersPositions, addPlayer, removePlayer, readOnly }) => {
   let index = 0
   const players = config.map(lineCount => {
     const slice = Array.apply(null, Array(lineCount)).map(
@@ -20,7 +21,13 @@ const Layout = ({ config, playersPositions, addPlayer, removePlayer }) => {
       {players.reverse().map((line, i) =>
         <div className='line' key={i}>
           {line.map(player =>
-            <PlayerDroppable
+            readOnly
+            ? <Player
+              className={player.id ? 'active' : ''}
+              number={player.number}
+              key={player.position}
+            />
+            : <PlayerDroppable
               className={player.id ? 'active' : ''}
               id={player.id}
               color={player.color}
@@ -41,7 +48,8 @@ Layout.propTypes = {
   config: PropTypes.array,
   playersPositions: PropTypes.object,
   addPlayer: PropTypes.func.isRequired,
-  removePlayer: PropTypes.func.isRequired
+  removePlayer: PropTypes.func.isRequired,
+  readOnly: PropTypes.bool
 }
 
 export default Layout

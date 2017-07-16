@@ -1,6 +1,10 @@
 .main {
   @include grid-container;
 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.25);
+  border-radius: 3px;
+  overflow: hidden;
+
   @include grid-media($main-grid--large){
     width: 1050px;
     margin: 0 auto;
@@ -11,6 +15,12 @@
 
     @include grid-media($main-grid--tablet-mid){
       @include grid-column(6);
+    }
+
+    &.main--readonly {
+      @include grid-media($main-grid--tablet-mid){
+        @include grid-column(12);
+      }
     }
   }
 }
@@ -27,6 +37,7 @@
   .settings-field-heading {
     position: absolute;
     top: 0;
+    left: 0;
     width: 100%;
     padding: 20px 20px 0 20px;
 
@@ -42,22 +53,6 @@
     input {
       border: 1px solid #ccc;
       padding: 5px;
-    }
-
-    button {
-      padding: 5px 8px;
-      border: 0;
-      color: #FFF;
-      outline: none;
-      cursor: pointer;
-
-      &.primary-button:disabled {
-        background-color: $secondary-color;
-      }
-
-      &.primary-button {
-        background-color: $primary-color;
-      }
     }
   }
 }

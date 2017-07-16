@@ -13,7 +13,16 @@ export class FirebaseList {
     this._path = value
   }
 
+  get userId () {
+    return this._userId
+  }
+
+  set userId (value) {
+    this._userId = value
+  }
+
   push (value) {
+    value = this._userId ? { ...value, userId: this._userId } : value
     return new Promise((resolve, reject) => {
       firebaseDb.ref(this.path)
         .push(value, error => error ? reject(error) : resolve())
@@ -35,7 +44,9 @@ export class FirebaseList {
   }
 
   subscribe (emit) {
-    let ref = firebaseDb.ref(this.path)
+    let ref = this._userId
+      ? firebaseDb.ref(this.path).orderByChild('userId').equalTo(this._userId)
+      : firebaseDb.ref(this.path)
     let initialized = false
     let list = []
 

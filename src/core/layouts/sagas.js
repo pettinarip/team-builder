@@ -7,7 +7,7 @@ function subscribe () {
 }
 
 function * read () {
-  layoutsList.path = `layout`
+  layoutsList.path = `layouts`
   const channel = yield call(subscribe)
   while (true) {
     let action = yield take(channel)
