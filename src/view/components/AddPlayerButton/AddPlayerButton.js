@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 const AddPlayerButton = ({ onClick }) => (
   <div
-    className='player add-player'
+    className='player add-player item'
     title='Add new player'
     onClick={onClick}
   >

@@ -19,7 +19,6 @@ const playerSource = {
         position: props.position
       }
       const target = {
-        id: dropResult.id,
         position: dropResult.position
       }
       if (target.position) {

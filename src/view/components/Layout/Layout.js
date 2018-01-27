@@ -6,7 +6,6 @@ import Position from '../Position'
 const Layout = ({ config, playersPositions, addPlayer, removePlayer, readOnly }) => {
   const players = config.map((position, i) => ({
       ...playersPositions[i],
-      position: i,
       ...position
     })
   )
@@ -14,7 +13,7 @@ const Layout = ({ config, playersPositions, addPlayer, removePlayer, readOnly })
   return (
     <div className='layout'>
       {players.map((player, i) => (
-          <Position x={player.x} y={player.y} key={i}>
+          <Position x={player.x} y={player.y} id={i} key={i}>
             <Player
               className={player.id ? 'active' : ''}
               number={player.number}
