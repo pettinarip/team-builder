@@ -18,7 +18,7 @@ const LayoutSelector = ({ layouts, selected, onLayoutClick }) => {
               className='layout-description'
               onClick={() => onLayoutClick(layout.id)}
             >
-              {layout.config.join('-')}
+              {layout.name}
             </div>
           </div>
         )}

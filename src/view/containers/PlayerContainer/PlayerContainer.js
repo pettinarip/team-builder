@@ -21,7 +21,7 @@ function collect (connect, monitor) {
 const PlayerContainer = ({ players, connectDropTarget, ...props }) => {
   return connectDropTarget(
     <div>
-      <SettingField title='Player'>
+      <SettingField title='Players'>
         <PlayerSelector
           players={players}
           onAddPlayerClick={props.showAddPlayerModal}

@@ -9,7 +9,7 @@ import SettingField from 'view/components/SettingField'
 import LayoutSelector from 'view/components/LayoutSelector'
 
 const LayoutSelectorContainer = ({ layouts, selected, changeLayoutSelection }) => (
-  <SettingField title='Tactics'>
+  <SettingField title='Tactic'>
     <LayoutSelector
       layouts={layouts}
       selected={selected}

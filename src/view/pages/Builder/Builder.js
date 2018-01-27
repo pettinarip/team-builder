@@ -20,8 +20,8 @@ let Builder = () => (
     <section className='container'>
       <div className='main__settings'>
         <SportSelector />
-        <LayoutSelectorContainer />
         <PlayerContainer />
+        <LayoutSelectorContainer />
       </div>
       <div className='main__field'>
         <FieldContainer />
