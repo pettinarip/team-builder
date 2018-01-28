@@ -1,37 +1,70 @@
-import React from 'react'
+import React,{ Component } from 'react'
 import PropTypes from 'prop-types'
+import { findDOMNode } from 'react-dom'
 import Player from '../Player'
 import Position from '../Position'
 
-const Layout = ({ config, playersPositions, addPlayer, removePlayer, readOnly }) => {
-  const players = config.map((position, i) => ({
-      ...playersPositions[i],
-      ...position
-    })
-  )
+import ItemTypes from 'core/constants/ItemTypes'
 
-  return (
-    <div className='layout'>
-      {players.map((player, i) => (
-          <Position x={player.x} y={player.y} id={i} key={i}>
-            <Player
-              className={player.id ? 'active' : ''}
-              number={player.number}
-              key={player.position}
-            />
-          </Position>
-        )
-      )}
-    </div>
-  )
+import { DropTarget } from 'react-dnd'
+
+class Layout extends Component {
+  render () {
+    const { config, playersPositions, connectDropTarget, readOnly } = this.props
+    const players = config.map((position, i) => ({
+        ...playersPositions[i],
+        ...position
+      })
+    )
+
+    return connectDropTarget(
+      <div className='layout'>
+        {players.map((player, i) => (
+            <Position
+              id={i}
+              key={i}
+              x={player.x}
+              y={player.y}
+            >
+              <Player
+                className={player.id ? 'active' : ''}
+                number={player.number}
+                key={player.position}
+              />
+            </Position>
+          )
+        )}
+      </div>
+    )
+  }
 }
 
 Layout.propTypes = {
   config: PropTypes.array,
   playersPositions: PropTypes.object,
-  addPlayer: PropTypes.func.isRequired,
-  removePlayer: PropTypes.func.isRequired,
+  updatePosition: PropTypes.func.isRequired,
   readOnly: PropTypes.bool
 }
 
-export default Layout
+export default DropTarget(ItemTypes.POSITION, {
+  drop (props, monitor, component) {
+    const dragItem = monitor.getItem()
+    const fieldBoundingRect = findDOMNode(component).getBoundingClientRect()
+    const sourceOffset = monitor.getSourceClientOffset()
+
+    const x = sourceOffset.x - fieldBoundingRect.left
+    const y = sourceOffset.y - fieldBoundingRect.top
+
+    props.updatePosition(
+      dragItem.position,
+      x,
+      y
+    )
+  }
+},
+function (connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+})(Layout)

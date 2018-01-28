@@ -1,3 +1,4 @@
 export default {
-  PLAYER: 'player'
+  PLAYER: 'player',
+  POSITION: 'position'
 }

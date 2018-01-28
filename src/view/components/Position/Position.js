@@ -1,31 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
-import { DropTarget } from 'react-dnd'
+import { DropTarget, DragSource } from 'react-dnd'
 
 import ItemTypes from 'core/constants/ItemTypes'
 
-const positionTarget = {
-  drop (props) {
-    return {
-      position: props.id
-    }
-  }
-}
-
-function collect (connect, monitor) {
-  return {
-    connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
-  }
-}
-
-const Position = ({ children, x, y, connectDropTarget }) => {
-  return connectDropTarget(
-    <div className='position' style={{ left: `${x}%`, bottom: `${y}%` }}>
+const Position = ({ children, x, y, connectDropTarget, connectDragSource }) => {
+  return connectDropTarget(connectDragSource(
+    <div className='position' style={{ left: x, top: y }}>
       { children }
     </div>
-  )
+  ))
 }
 
 Position.propTypes = {
@@ -35,4 +19,33 @@ Position.propTypes = {
   y: PropTypes.number
 }
 
-export default DropTarget(ItemTypes.PLAYER, positionTarget, collect)(Position)
+const DraggablePosition = DragSource(ItemTypes.POSITION, {
+  beginDrag (props) {
+    return {
+      position: props.id
+    }
+  }
+},
+function (connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+})(Position)
+
+const DroppablePosition = DropTarget([ItemTypes.PLAYER], {
+  drop (props) {
+    return {
+      position: props.id
+    }
+  }
+},
+function (connect, monitor) {
+  return {
+    connectDropTarget: connect.dropTarget(),
+    isOver: monitor.isOver()
+  }
+})(DraggablePosition)
+
+
+export default DroppablePosition

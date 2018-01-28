@@ -5,6 +5,8 @@ import * as layouts from './layouts'
 import * as auth from './auth'
 import * as shareCode from './shareCode'
 
+export const getSelectedLayoutId = state => layouts.getSelectedId(state.layouts)
+
 export const getLayoutsList = state => layouts.getLayoutsList(state.layouts)
 
 export const getActiveLayout = state => layouts.getActiveLayout(state.layouts)

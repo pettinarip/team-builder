@@ -2,15 +2,14 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../Layout'
 
-const Field = ({ layout, playersPositions, addPlayer, removePlayer, readOnly }) => {
+const Field = ({ layout, playersPositions, updatePosition, readOnly }) => {
   return (
     <div className='field'>
       {layout &&
         <Layout
           config={layout.config}
           playersPositions={playersPositions}
-          addPlayer={addPlayer}
-          removePlayer={removePlayer}
+          updatePosition={updatePosition}
           readOnly={readOnly}
         />}
     </div>
@@ -20,8 +19,7 @@ const Field = ({ layout, playersPositions, addPlayer, removePlayer, readOnly }) 
 Field.propTypes = {
   layout: PropTypes.object,
   playersPositions: PropTypes.object,
-  addPlayer: PropTypes.func.isRequired,
-  removePlayer: PropTypes.func.isRequired,
+  updatePosition: PropTypes.func.isRequired,
   readOnly: PropTypes.bool
 }
 

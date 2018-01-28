@@ -2,7 +2,7 @@ import { createSelector } from 'reselect'
 
 const getIdsState = state => state.ids
 const getByIdState = state => state.byId
-const getSelectedId = state => state.selectedId
+export const getSelectedId = state => state.selectedId
 
 export const getLayout = (state, id) =>
   getByIdState(state)[id]

@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import { layoutsTypes } from './actionTypes'
 import { shareCodeTypes } from 'core/shareCode'
+import { positionsTypes } from '../positions/actionTypes'
 
 const selectedId = (state = -1, action) => {
   switch (action.type) {
@@ -22,6 +23,20 @@ const byId = (state = {}, action) => {
           obj[layout.id] = layout
           return obj
         }, {})
+      }
+    case positionsTypes.UPDATE_POSITION:
+      return {
+        ...state,
+        [action.layoutId]: {
+          ...state[action.layoutId],
+          config: Object.assign(
+            [],
+            state[action.layoutId].config,
+            {
+              [action.position]: { x: action.x, y: action.y }
+            }
+          )
+        }
       }
     default:
       return state

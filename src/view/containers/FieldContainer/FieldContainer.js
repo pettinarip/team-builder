@@ -9,15 +9,21 @@ import { getActiveLayout, getPlayersByPosition } from 'core/selectors'
 import Field from 'view/components/Field'
 
 const FieldContainer = props => {
-  const { layout, playersPositions, addPlayerPosition, removePlayerPosition, match } = props
+  const {
+    layout,
+    playersPositions,
+    addPlayerPosition,
+    removePlayerPosition,
+    updatePosition,
+    match
+  } = props
   const shareCode = match.params.shareCode
   return (
     <div className='layout-wrapper'>
       <Field
         layout={layout}
         playersPositions={playersPositions}
-        addPlayer={addPlayerPosition}
-        removePlayer={removePlayerPosition}
+        updatePosition={updatePosition}
         readOnly={shareCode !== undefined}
       />
     </div>
