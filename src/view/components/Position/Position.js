@@ -6,7 +6,7 @@ import ItemTypes from 'core/constants/ItemTypes'
 
 const Position = ({ children, x, y, connectDropTarget, connectDragSource }) => {
   return connectDropTarget(connectDragSource(
-    <div className='position' style={{ left: x, top: y }}>
+    <div className='position' style={{ left: `${x}%`, top: `${y}%` }}>
       { children }
     </div>
   ))
@@ -33,7 +33,7 @@ function (connect, monitor) {
   }
 })(Position)
 
-const DroppablePosition = DropTarget([ItemTypes.PLAYER], {
+const DroppablePosition = DropTarget(ItemTypes.PLAYER, {
   drop (props) {
     return {
       position: props.id

@@ -57,8 +57,8 @@ export default DropTarget(ItemTypes.POSITION, {
 
     props.updatePosition(
       dragItem.position,
-      x,
-      y
+      x / fieldBoundingRect.width * 100,
+      y / fieldBoundingRect.height * 100
     )
   }
 },
