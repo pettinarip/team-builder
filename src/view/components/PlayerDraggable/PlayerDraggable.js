@@ -21,7 +21,7 @@ const playerSource = {
       const target = {
         position: dropResult.position
       }
-      if (target.position) {
+      if (typeof target.position === 'number') {
         props.onDropped(source, target)
       } else {
         props.onDroppedOutside(source.id, source.position)
