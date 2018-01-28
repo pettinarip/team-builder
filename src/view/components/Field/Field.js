@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Layout from '../Layout'
+import PositionLayer from '../PositionLayer'
 
 const Field = ({ layout, playersPositions, updatePosition, readOnly }) => {
   return (
@@ -12,6 +13,7 @@ const Field = ({ layout, playersPositions, updatePosition, readOnly }) => {
           updatePosition={updatePosition}
           readOnly={readOnly}
         />}
+      <PositionLayer />
     </div>
   )
 }
