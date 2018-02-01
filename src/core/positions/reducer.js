@@ -16,11 +16,10 @@ export const positionsReducer = (state = {}, action) => {
         [action.target]: state[action.source],
         [action.source]: state[action.target],
       }
-    case positionsTypes.REMOVE_PLAYER_POSITION:
     case positionsTypes.CLEAN_PLAYER_POSITION:
       return {
         ...state,
-        [action.position]: null
+        [action.position]: undefined
       }
     case shareCodeTypes.LOAD_SHARE_CODE_SUCCESS:
       return action.payload.positions

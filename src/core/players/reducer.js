@@ -19,23 +19,6 @@ const byId = (state = {}, action) => {
       }, {})
     case shareCodeTypes.LOAD_SHARE_CODE_SUCCESS:
       return action.payload.players
-    case positionsTypes.ADD_PLAYER_POSITION:
-      return {
-        ...state,
-        [action.id]: { ...state[action.id], active: true }
-      }
-    case positionsTypes.REMOVE_PLAYER_POSITION:
-      return {
-        ...state,
-        [action.id]: { ...state[action.id], active: false }
-      }
-    case positionsTypes.RESET_POSITIONS:
-      return Object.entries(state).reduce((result, [id, player]) => {
-        return {
-          ...result,
-          [id]: { ...player, active: false }
-        }
-      }, {})
     default:
       return state
   }

@@ -23,8 +23,7 @@ const PlayerSelector = ({ players, ...props }) => (
 PlayerSelector.propTypes = {
   players: PropTypes.array.isRequired,
   onAddPlayerClick: PropTypes.func.isRequired,
-  onAddPlayerPosition: PropTypes.func.isRequired,
-  onRemovePlayerPosition: PropTypes.func.isRequired
+  onAddPlayerPosition: PropTypes.func.isRequired
 }
 
 export default PlayerSelector

@@ -13,13 +13,3 @@ export const getPlayersList = createSelector(
   getByIdState,
   (ids, byId) => ids.map(id => byId[id])
 )
-
-export const getActivePlayers = createSelector(
-  getPlayersList,
-  players => players.filter(player => player.active)
-)
-
-export const getInactivePlayers = createSelector(
-  getPlayersList,
-  players => players.filter(player => !player.active)
-)

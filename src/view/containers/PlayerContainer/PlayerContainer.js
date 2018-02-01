@@ -36,7 +36,6 @@ const PlayerContainer = ({ players, connectDropTarget, ...props }) => {
 PlayerContainer.propTypes = {
   players: PropTypes.array,
   addPlayerPosition: PropTypes.func.isRequired,
-  removePlayerPosition: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   isOver: PropTypes.bool.isRequired,
   showAddPlayerModal: PropTypes.func.isRequired
@@ -48,7 +47,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = {
   addPlayerPosition: positionsActions.addPlayerPosition,
-  removePlayerPosition: positionsActions.removePlayerPosition,
   showAddPlayerModal: modalsActions.showAddPlayerModal
 }
 

@@ -11,11 +11,22 @@ export const getLayoutsList = state => layouts.getLayoutsList(state.layouts)
 
 export const getActiveLayout = state => layouts.getActiveLayout(state.layouts)
 
-export const getInactivePlayers = state => players.getInactivePlayers(state.players)
-
 export const getPositions = state => positions.getPositions(state.positions)
 
 export const getUser = state => auth.getUser(state.auth)
+
+export const getInactivePlayers = createSelector(
+  state => positions.getPositions(state.positions),
+  state => players.getPlayersList(state.players),
+  (positions, players) => {
+    const actives = Object.values(positions)
+    return players.reduce((inactives, player) => {
+      return !actives.includes(player.id)
+        ? [...inactives, player]
+        : inactives
+    }, [])
+  }
+)
 
 export const getPlayersByPosition = createSelector(
   state => positions.getPositions(state.positions),
