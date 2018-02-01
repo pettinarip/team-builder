@@ -62,11 +62,11 @@ class PlayerDraggable extends Component {
 	}
 
   render () {
-    const { connectDragSource, className, name, number } = this.props
+    const { connectDragSource, className, name, number, id } = this.props
     
     return connectDragSource(
       <div className={`player ${className}`} style={getStyles(this.props)}>
-        <Player className={className} name={name} number={number} />
+        <Player id={id} className={className} name={name} number={number} />
       </div>
     )
   }

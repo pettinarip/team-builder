@@ -38,5 +38,11 @@ export const positionsActions = {
       x,
       y
     })
-  }
+  },
+
+  switchPosition: (source, target) => ({
+    type: positionsTypes.SWITCH_POSITION,
+    source,
+    target
+  })
 }

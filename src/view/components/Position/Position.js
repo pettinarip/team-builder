@@ -46,7 +46,8 @@ Position.propTypes = {
   isDragging: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
-  connectDragPreview: PropTypes.func.isRequired
+  connectDragPreview: PropTypes.func.isRequired,
+  onDropped: PropTypes.func.isRequired
 }
 
 const DraggablePosition = DragSource(ItemTypes.POSITION, {
@@ -54,6 +55,13 @@ const DraggablePosition = DragSource(ItemTypes.POSITION, {
     return {
       position: props.id,
       ...props.children.props
+    }
+  },
+  endDrag (props, monitor) {
+    if (monitor.didDrop()) {
+      const item = monitor.getItem()
+      const dropResult = monitor.getDropResult()
+      props.onDropped(item.position, dropResult.position)
     }
   }
 },
@@ -65,8 +73,8 @@ function (connect, monitor) {
   }
 })(Position)
 
-const DroppablePosition = DropTarget(ItemTypes.PLAYER, {
-  drop (props) {
+const DroppablePosition = DropTarget([ItemTypes.PLAYER, ItemTypes.POSITION], {
+  drop (props, monitor) {
     return {
       position: props.id
     }

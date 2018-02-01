@@ -8,6 +8,7 @@ const Player = (props) => (
 )
 
 Player.propTypes = {
+  id: PropTypes.string,
   className: PropTypes.string,
   name: PropTypes.string,
   number: PropTypes.oneOfType([

@@ -10,6 +10,12 @@ export const positionsReducer = (state = {}, action) => {
         ...state,
         [action.position]: action.id
       }
+    case positionsTypes.SWITCH_POSITION:
+      return {
+        ...state,
+        [action.target]: state[action.source],
+        [action.source]: state[action.target],
+      }
     case positionsTypes.REMOVE_PLAYER_POSITION:
     case positionsTypes.CLEAN_PLAYER_POSITION:
       return {

@@ -12,9 +12,8 @@ const FieldContainer = props => {
   const {
     layout,
     playersPositions,
-    addPlayerPosition,
-    removePlayerPosition,
     updatePosition,
+    switchPosition,
     match
   } = props
   const shareCode = match.params.shareCode
@@ -24,6 +23,7 @@ const FieldContainer = props => {
         layout={layout}
         playersPositions={playersPositions}
         updatePosition={updatePosition}
+        switchPosition={switchPosition}
         readOnly={shareCode !== undefined}
       />
     </div>
@@ -33,8 +33,8 @@ const FieldContainer = props => {
 FieldContainer.propTypes = {
   layout: PropTypes.object,
   playersPositions: PropTypes.object,
-  addPlayerPosition: PropTypes.func.isRequired,
-  removePlayerPosition: PropTypes.func.isRequired,
+  updatePosition: PropTypes.func.isRequired,
+  switchPosition: PropTypes.func.isRequired,
   match: PropTypes.object.isRequired
 }
 
