@@ -5,8 +5,7 @@ export const playersActions = {
     type: playersTypes.ADD_PLAYER_REQUEST,
     player: {
       name,
-      number,
-      active: false
+      number
     }
   }),
 
