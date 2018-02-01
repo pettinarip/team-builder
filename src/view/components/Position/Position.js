@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import cn from 'classnames'
 import { DropTarget, DragSource } from 'react-dnd'
 import { getEmptyImage } from 'react-dnd-html5-backend'
 
@@ -28,10 +29,14 @@ class Position extends Component {
   }
   
   render () {
-    const { children, x, y, connectDropTarget, connectDragSource } = this.props
+    const { children, x, y, connectDropTarget, connectDragSource, isOver, canDrop } = this.props
 
     return connectDropTarget(connectDragSource(
-      <div className='position' style={getItemStyles(this.props)}>
+      <div className={cn(
+        'position', {
+          'position--can-drop': isOver && canDrop
+        }
+      )} style={getItemStyles(this.props)}>
         { children }
       </div>
     ))
@@ -44,6 +49,8 @@ Position.propTypes = {
   x: PropTypes.number,
   y: PropTypes.number,
   isDragging: PropTypes.bool.isRequired,
+  isOver: PropTypes.bool.isRequired,
+  canDrop: PropTypes.bool.isRequired,
   connectDragSource: PropTypes.func.isRequired,
   connectDropTarget: PropTypes.func.isRequired,
   connectDragPreview: PropTypes.func.isRequired,
@@ -83,7 +90,8 @@ const DroppablePosition = DropTarget([ItemTypes.PLAYER, ItemTypes.POSITION], {
 function (connect, monitor) {
   return {
     connectDropTarget: connect.dropTarget(),
-    isOver: monitor.isOver()
+    isOver: monitor.isOver(),
+    canDrop: monitor.canDrop()
   }
 })(DraggablePosition)
 

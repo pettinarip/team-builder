@@ -19,9 +19,13 @@
     flex: 1;
     position: relative;
     margin: 35px 25px;
+  }
 
-    .position {
-      position: absolute;
+  .position {
+    position: absolute;
+
+    &--can-drop .player {
+      background-color: #87bd65;
     }
   }
 

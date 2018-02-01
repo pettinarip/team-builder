@@ -19,6 +19,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "bourbon-neat": "^2.0.0",
+    "classnames": "^2.2.5",
     "firebase": "^4.0.0",
     "history": "^4.6.1",
     "react": "^15.5.4",
