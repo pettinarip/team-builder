@@ -3,20 +3,30 @@
 exports[`Field component should not render layout component if no layout is passed 1`] = `
 <div
   className="field"
-/>
+>
+  <DragLayer(PositionLayer) />
+</div>
 `;
 
 exports[`Field component should render the component properly 1`] = `
 <div
   className="field"
 >
-  <Layout
-    addPlayer={[Function]}
+  <DropTarget(Layout)
     config={
       Array [
-        4,
-        4,
-        2,
+        Object {
+          "x": 10,
+          "y": 10,
+        },
+        Object {
+          "x": 10,
+          "y": 20,
+        },
+        Object {
+          "x": 10,
+          "y": 30,
+        },
       ]
     }
     playersPositions={
@@ -24,7 +34,9 @@ exports[`Field component should render the component properly 1`] = `
         "1": 1,
       }
     }
-    removePlayer={[Function]}
+    switchPosition={[Function]}
+    updatePosition={[Function]}
   />
+  <DragLayer(PositionLayer) />
 </div>
 `;

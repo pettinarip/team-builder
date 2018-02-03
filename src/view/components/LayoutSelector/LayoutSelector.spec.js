@@ -7,10 +7,20 @@ describe('LayoutSelector component', () => {
     const component = mountLayoutSelector({
       layouts: [{
         id: 1,
-        config: [4, 4, 2]
+        name: '4-4-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }, {
         id: 2,
-        config: [3, 5, 2]
+        name: '3-5-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }]
     })
 
@@ -22,7 +32,12 @@ describe('LayoutSelector component', () => {
     const component = mountLayoutSelector({
       layouts: [{
         id: 1,
-        config: [4, 4, 2]
+        name: '4-4-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }],
       onLayoutClick: layoutClick
     })
@@ -35,14 +50,29 @@ describe('LayoutSelector component', () => {
     const component = mountLayoutSelector({
       layouts: [{
         id: 1,
-        config: [4, 4, 2]
+        name: '4-4-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }, {
         id: 2,
-        config: [4, 4, 2]
+        name: '3-5-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }],
       selected: {
         id: 1,
-        config: [4, 4, 2]
+        name: '4-4-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 10 },
+          { x: 10, y: 10 }
+        ]
       }
     })
 

@@ -2,7 +2,7 @@
 
 exports[`AddPlayerButton component should render the component properly 1`] = `
 <div
-  className="player add-player"
+  className="player add-player item"
   onClick={[Function]}
   title="Add new player"
 >

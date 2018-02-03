@@ -4,77 +4,35 @@ exports[`Layout component should render the component properly 1`] = `
 <div
   className="layout"
 >
-  <div
-    className="line"
+  <DropTarget(DragSource(Position))
+    id={0}
+    onDropped={[Function]}
+    x={10}
+    y={10}
   >
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
+    <Player
       className=""
-      position={8}
-      removePlayer={[Function]}
     />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={9}
-      removePlayer={[Function]}
-    />
-  </div>
-  <div
-    className="line"
+  </DropTarget(DragSource(Position))>
+  <DropTarget(DragSource(Position))
+    id={1}
+    onDropped={[Function]}
+    x={10}
+    y={20}
   >
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
+    <Player
       className=""
-      position={4}
-      removePlayer={[Function]}
     />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={5}
-      removePlayer={[Function]}
-    />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={6}
-      removePlayer={[Function]}
-    />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={7}
-      removePlayer={[Function]}
-    />
-  </div>
-  <div
-    className="line"
+  </DropTarget(DragSource(Position))>
+  <DropTarget(DragSource(Position))
+    id={2}
+    onDropped={[Function]}
+    x={10}
+    y={30}
   >
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
+    <Player
       className=""
-      position={0}
-      removePlayer={[Function]}
     />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={1}
-      removePlayer={[Function]}
-    />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={2}
-      removePlayer={[Function]}
-    />
-    <DropTarget(PlayerDroppable)
-      addPlayer={[Function]}
-      className=""
-      position={3}
-      removePlayer={[Function]}
-    />
-  </div>
+  </DropTarget(DragSource(Position))>
 </div>
 `;

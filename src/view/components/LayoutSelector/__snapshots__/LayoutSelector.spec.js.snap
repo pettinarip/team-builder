@@ -55,7 +55,7 @@ exports[`LayoutSelector component should set selected class when a selected layo
         className="layout-description"
         onClick={[Function]}
       >
-        4-4-2
+        3-5-2
       </div>
     </div>
   </div>

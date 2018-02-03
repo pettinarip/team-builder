@@ -4,7 +4,11 @@ import Layout from './Layout'
 
 describe('Layout component', () => {
   it('should render the component properly', () => {
-    const config = [4, 4, 2]
+    const config = [
+      { x: 10, y: 10 },
+      { x: 10, y: 20 },
+      { x: 10, y: 30 }
+    ]
     const component = mountLayout({
       config,
       playersPositions: {1: 1}
@@ -16,12 +20,15 @@ describe('Layout component', () => {
 
 function mountLayout (props) {
   const propsToUse = {
-    addPlayer () {},
-    removePlayer () {},
+    updatePosition () {},
+    switchPosition () {},
     config: {},
     playersPositions: {},
     ...props
   }
 
-  return shallow(<Layout {...propsToUse} />)
+  const OriginalLayout = Layout.DecoratedComponent
+  const identity = el => el;
+
+  return shallow(<OriginalLayout {...propsToUse} connectDropTarget={identity} />)
 }

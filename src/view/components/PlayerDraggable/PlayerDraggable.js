@@ -85,7 +85,6 @@ PlayerDraggable.propTypes = {
   onDropped: PropTypes.func,
   onDroppedOutside: PropTypes.func,
   connectDragSource: PropTypes.func.isRequired,
-  connectDragPreview: PropTypes.func.isRequired,
   isDragging: PropTypes.bool
 }
 

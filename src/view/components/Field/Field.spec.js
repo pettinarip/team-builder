@@ -5,7 +5,15 @@ import Field from './Field'
 describe('Field component', () => {
   it('should render the component properly', () => {
     const component = mountField({
-      layout: {id: 1, config: [4, 4, 2]},
+      layout: {
+        id: 1,
+        name: '4-4-2',
+        config: [
+          { x: 10, y: 10 },
+          { x: 10, y: 20 },
+          { x: 10, y: 30 }
+        ]
+      },
       playersPositions: {1: 1}
     })
 
@@ -23,8 +31,8 @@ describe('Field component', () => {
 
 function mountField (props = {}) {
   const propsToUse = {
-    addPlayer () {},
-    removePlayer () {},
+    updatePosition () {},
+    switchPosition () {},
     layout: undefined,
     playersPositions: {},
     ...props

@@ -13,8 +13,7 @@ describe('positions reducer', () => {
 
     beforeEach(() => {
       state = positionsReducer({
-        1: 3,
-        3: null
+        1: 3
       }, {
         type: positionsTypes.ADD_PLAYER_POSITION,
         id: 1,
@@ -28,31 +27,7 @@ describe('positions reducer', () => {
 
     it('should only modify the action position', () => {
       expect(state[1]).toEqual(3)
-      expect(state[3]).toEqual(null)
-    })
-  })
-
-  describe('when a player position is removed', () => {
-    let state
-
-    beforeEach(() => {
-      state = positionsReducer({
-        1: 3,
-        2: 1,
-        3: null
-      }, {
-        type: positionsTypes.REMOVE_PLAYER_POSITION,
-        position: 2
-      })
-    })
-
-    it('should empty the position', () => {
-      expect(state[2]).toEqual(null)
-    })
-
-    it('should only modify the action position', () => {
-      expect(state[1]).toEqual(3)
-      expect(state[3]).toEqual(null)
+      expect(state[3]).toEqual(undefined)
     })
   })
 
@@ -62,8 +37,7 @@ describe('positions reducer', () => {
     beforeEach(() => {
       state = positionsReducer({
         1: 3,
-        2: 1,
-        3: null
+        2: 1
       }, {
         type: positionsTypes.CLEAN_PLAYER_POSITION,
         position: 2
@@ -71,12 +45,12 @@ describe('positions reducer', () => {
     })
 
     it('should empty the position', () => {
-      expect(state[2]).toEqual(null)
+      expect(state[2]).toEqual(undefined)
     })
 
     it('should only modify the action position', () => {
       expect(state[1]).toEqual(3)
-      expect(state[3]).toEqual(null)
+      expect(state[3]).toEqual(undefined)
     })
   })
 
@@ -86,8 +60,7 @@ describe('positions reducer', () => {
     beforeEach(() => {
       state = positionsReducer({
         1: 3,
-        2: 1,
-        3: null
+        2: 1
       }, {
         type: positionsTypes.RESET_POSITIONS
       })
