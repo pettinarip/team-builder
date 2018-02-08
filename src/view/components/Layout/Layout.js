@@ -10,7 +10,7 @@ import { DropTarget } from 'react-dnd'
 
 class Layout extends Component {
   render () {
-    const { config, playersPositions, connectDropTarget, switchPosition, readOnly } = this.props
+    const { config, playersPositions, connectDropTarget, switchPosition } = this.props
     const players = config.map((position, i) => ({
         ...playersPositions[i],
         ...position
@@ -49,8 +49,7 @@ Layout.propTypes = {
   config: PropTypes.array,
   playersPositions: PropTypes.object,
   updatePosition: PropTypes.func.isRequired,
-  switchPosition: PropTypes.func.isRequired,
-  readOnly: PropTypes.bool
+  switchPosition: PropTypes.func.isRequired
 }
 
 export default DropTarget(ItemTypes.POSITION, {

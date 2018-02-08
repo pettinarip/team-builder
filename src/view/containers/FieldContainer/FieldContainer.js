@@ -13,10 +13,9 @@ const FieldContainer = props => {
     layout,
     playersPositions,
     updatePosition,
-    switchPosition,
-    match
+    switchPosition
   } = props
-  const shareCode = match.params.shareCode
+
   return (
     <div className='layout-wrapper'>
       <Field
@@ -24,7 +23,6 @@ const FieldContainer = props => {
         playersPositions={playersPositions}
         updatePosition={updatePosition}
         switchPosition={switchPosition}
-        readOnly={shareCode !== undefined}
       />
     </div>
   )
@@ -34,8 +32,7 @@ FieldContainer.propTypes = {
   layout: PropTypes.object,
   playersPositions: PropTypes.object,
   updatePosition: PropTypes.func.isRequired,
-  switchPosition: PropTypes.func.isRequired,
-  match: PropTypes.object.isRequired
+  switchPosition: PropTypes.func.isRequired
 }
 
 const mapStateToProps = (state) => ({
