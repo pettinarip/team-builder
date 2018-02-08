@@ -1,7 +1,5 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { DragDropContext } from 'react-dnd'
-import HTML5Backend from 'react-dnd-html5-backend'
 
 import Toolbar from 'view/components/Toolbar'
 
@@ -30,10 +28,6 @@ let Builder = () => (
     <ShareCodeContainer />
   </article>
 )
-
-Builder.propTypes = {}
-
-Builder = DragDropContext(HTML5Backend)(Builder)
 
 export default connect(
   null

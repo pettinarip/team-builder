@@ -4,6 +4,9 @@ import { Provider } from 'react-redux'
 import { Router, Route } from 'react-router-dom'
 import history from './history'
 
+import { DragDropContext } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
 import App from './app'
 import AuthRoute from './containers/AuthRoute'
 import SignInRoute from './containers/SignInRoute'
@@ -29,4 +32,4 @@ Root.propTypes = {
   store: PropTypes.object
 }
 
-export default Root
+export default DragDropContext(HTML5Backend)(Root)
